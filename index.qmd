@@ -30,11 +30,13 @@ This projects aims to redesign bad graphs
 
 ### Dataset
 
-![Dataset](/Users/zijiehe/Desktop/midimg/WechatIMG567.jpg)
+![Dataset](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign1/WechatIMG567.jpg)
 
 ## Special efforts
 
-Here, the dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br> ![Extract the data](/Users/zijiehe/Desktop/midimg/WechatIMG569.jpg) <br>
+Here, the dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br>
+
+![Extract the data](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign1/WechatIMG569.jpg)
 
 ### Redesign Visualization.
 
@@ -122,6 +124,7 @@ server <- function(input, output) {
     p <- ggplot(filtered_data, aes(x = Year, y = Ratio, fill = Products)) +
       geom_bar(stat = "identity") +
       scale_y_continuous(labels = scales::percent) +
+      scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
       labs(x = "Year", y = "Percentage", title = "Product Type Contributions by Year (Stacked)") +
       theme_minimal()
     
@@ -413,7 +416,7 @@ shinyApp(ui = ui, server = server)
 
 ![](/Users/zijiehe/Desktop/midimg/new/WechatIMG596.jpg){.shinyfunction3 width="200" height="auto"}
 
-![](/Users/zijiehe/Desktop/midimg/new/WechatIMG597.jpg){.shinyfunction4 width="200" height="auto"}
+![](/Users/zijiehe/Desktop/STATMIDPROJECT/img/new/WechatIMG597.jpg){.shinyfunction4 width="200" height="auto"}
 
 ### Reference
 

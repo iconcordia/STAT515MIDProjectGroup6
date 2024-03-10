@@ -265,11 +265,11 @@ leaflet(df.sub) %>%
 
 #### Advantage of the design visualization.
 
-Interactive Hurricane Landfall Visualization: <br> I used point markers to show where the hurricane made landfall and added labels to each point (the labels contain their basic information). Analysts can use this information to gain a better understanding of the hurricane and predict where future hurricanes may make landfall. Color-coded Intensity Representation: <br> I have used different colors to represent the different intensities of the hurricanes, there are five different intensities in total, and I have used colors that differ from the background to differentiate them. Detailed Hurricane Information on Click: <br> Clicking on each point (where the hurricane made landfall) will give you detailed information about the hurricane.
+  Interactive Hurricane Landfall Visualization: <br> I used point markers to show where the hurricane made landfall and added labels to each point (the labels contain their basic information). Analysts can use this information to gain a better understanding of the hurricane and predict where future hurricanes may make landfall. Color-coded Intensity Representation: <br> I have used different colors to represent the different intensities of the hurricanes, there are five different intensities in total, and I have used colors that differ from the background to differentiate them. Detailed Hurricane Information on Click: <br> Clicking on each point (where the hurricane made landfall) will give you detailed information about the hurricane.
 
 #### Disadvantage of the original visualization.
 
-No information was provided on the hurricane. Visual inspection is required to determine the location of the hurricane, and the location of the hurricane is displayed using a large irregular graphic that makes it impossible to determine the exact location of the hurricane.
+  No information was provided on the hurricane. Visual inspection is required to determine the location of the hurricane, and the location of the hurricane is displayed using a large irregular graphic that makes it impossible to determine the exact location of the hurricane.
 
 ```{r results = 'hide'}
 #| warning: false

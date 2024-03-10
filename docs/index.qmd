@@ -1,0 +1,477 @@
+---
+title: "Mid Term Project"
+date: "3/9/2024"
+format: 
+  html:
+    code-fold: true
+---
+
+## Group6: Nemalhabib Aida, Zijie He
+
+## Project Overview
+
+This projects aims to redesign bad graphs
+
+### Pie Chart(Bad graph)
+
+![Original Visualizaion](/Users/zijiehe/Desktop/midimg/WechatIMG568.jpg)
+<br>
+
+###  Reasons for choosing this image
+
+1. The width of the rings in the graph (indicating the magnitude of the ratio or value) is difficult to compare accurately.
+2. Complex and hard to read.The area of each circle is difficult to calculate, involving radius and circumference. So difficult to compare and read.
+3. Multiple elements in the same plane. For example, year and type are completely unrelated variables, but both appear inside the circle at the same time.
+4. A lot of wasted space, we can see that the center circle and the space around the edges are unusable.
+5. Only the growth rate of individual elements can be compared. In this pie chart, the relationship between the growth of the pharmaceuticals and other categories can only be seen in the figure
+<br>
+
+### Suggestions for enhancing visualization:
+<br>
+1. Use stacked bar charts to show the categorization of medicines. Using bars of the same area to represent the distribution of different classes of drugs for each year will be clearer than circles of varying area size. We can easily see how they are categorized. And there is no illusion that the total amount in 2022 will definitely be larger than that in 2015.<br>
+2. use XY axis, bar, and legend to separate the different variables, don't have other variables in the same plane, X-axis indicates the year, Y-axis indicates their percentage.<br>
+3. use the same color for one category without creating a confusing visual effect.<br>
+4. add interactive function at the same time, add filtering function, that is, to be able to clearly compare one or more categories of goods per year percentage change.<br>
+
+
+### Dataset
+
+![Dataset](/Users/zijiehe/Desktop/midimg/WechatIMG567.jpg)
+
+
+## Special efforts
+
+Here, his dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning.
+<br>
+![Extract the data](/Users/zijiehe/Desktop/midimg/WechatIMG569.jpg)
+<br>
+
+### Redesign Visualization.
+
+```{r}
+#| warning: false
+
+#install packages
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(shiny)
+library(readr)
+library(leaflet)
+library(tidyverse)
+
+#read the CSV and change the format of each variable.
+data <- read_csv("/Users/zijiehe/Desktop/midpie.csv") 
+data$Year = as.factor(data$Year)
+data$Products = as.factor(data$Products)
+data$Ratio <- as.numeric(gsub("%", "", data$Ratio)) / 100
+```
+
+
+```{r}
+#use ggplot to create the visualization.
+gg = ggplot(data, aes(x = as.factor(Year), y = Ratio, fill = Products)) +
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(x = "Year", y = "Percentage", fill = "Product Type",
+       title = "Product Type Contributions by Year (Stacked)") +
+  theme_minimal()
+
+print(gg)
+```
+
+### Analysis the original graph and the redesign graph.
+
+#### Advantage of the redesign visualization.
+The stacked bar chart displaying "Product Type Contributions by Year." This visualization efficiently conveys the change in product type proportions over multiple years, making it easy to track trends and compare categories across different times. Its strengths include clarity in showing each product type's share within a year and facilitating comparison between years.
+
+#### Disadvantage of the original visualization.
+Conversely, the pie chart presents a circular, nested pie chart illustrating similar data. This format, while visually appealing, can be challenging to interpret precisely, especially for smaller segments. The readability of specific data points, like exact percentages, can be hindered by the chart's concentric circles layout, which might confuse viewers trying to compare data across years.
+
+Overall, the stacked bar chart is superior in presenting data over time, offering a clearer, more accessible comparison of categories across years. It avoids the potential for confusion inherent in the nested pie chart's design, providing a straightforward way to understand the distribution and evolution of product types over time.
+
+## Add interactive function.
+
+```{r}
+#interactive function
+gg_plotly <- ggplotly(gg)
+
+gg_plotly
+```
+
+#### Although this table is much better than the original, it is still difficult to compare specific variables. So we've added plotly's interactive features. In this feature, we can hide the specified variables and show the ones we want to analyze. At the same time, we can zoom in and out of the image, which helps us to analyze the visualization in more depth.
+
+#### We can also download and save images (enlarged, reduced, original) at any time. When we move the mouse over the bar, we can use the tabs to get to know the specific values and attributes (you can choose to show the attributes of one variable or multiple variables).
+
+
+
+```{r results = 'hide'}
+#| warning: false
+
+#Using shiny function
+ui <- fluidPage(
+  titlePanel("Dynamic Product Type Contributions by Year"),
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput("selectedProducts", "Choose product types:",
+                         choices = unique(data$Products),
+                         selected = unique(data$Products)),
+    ),
+    mainPanel(
+      plotlyOutput("stackedBarPlot")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$stackedBarPlot <- renderPlotly({
+    filtered_data <- data %>% 
+      filter(Products %in% input$selectedProducts) %>%
+      mutate(Year = as.factor(Year))
+    
+    p <- ggplot(filtered_data, aes(x = Year, y = Ratio, fill = Products)) +
+      geom_bar(stat = "identity") +
+      scale_y_continuous(labels = scales::percent) +
+      labs(x = "Year", y = "Percentage", title = "Product Type Contributions by Year (Stacked)") +
+      theme_minimal()
+    
+    ggplotly(p)
+  })
+}
+
+shinyApp(ui, server)
+```
+
+### Using shiny function on the visualization.
+
+The visualization already has an interactive feature, but one of the drawbacks of the original graph (not being able to compare the growth rates of specific variables as the years increase) has not yet been implemented; we can't directly compare the growth rates of the three variables that are in the middle of the bar. For this reason, we added the shiny function and filtered out specific variables, using the filter function to show one or more of the specific variables individually.
+
+### Shiny function results.
+
+![Shiny Function](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG591.jpg)
+
+### What we can get in this chart.
+
+#### pharmaceuticals for the majority of the market, much higher than other types of products, which shows that drugs are the most important category in the market. And as you can see from the graph, its position is relatively stable.
+
+#### The share of the other four categories is smaller, and the change from 2015 to 2022 is more stable. It shows that the market is relatively stable. Consumer and patient demand for these categories is stable.
+
+#### In general, each bar counts the proportion of different categories of drugs, giving a macro view of the drug market. These trends allow entrepreneurs and pharmaceutical manufacturers to develop a clear market strategy and focus on product development.
+
+
+#### The use of the shiny function enhances the analysis of our projects by allowing us to select specific categories to analyze, which does not allow us to make confusion and errors due to the large number of categories, but allows us to analyze a single category or a few categories.
+
+![Shiny Function](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG592.jpg)
+
+#### This graph shows only two categories, which helps us to compare the distribution of the two as well as the growth. Also this image is simpler than the 5 category visualization and we are able to read it more clearly.
+
+
+### Using Line Chart
+
+#### The bar chart helps us to better analyze the architectural changes in the drug category from 2015 to 2022. But if we want to discuss the change in the share of each specific drug more directly, a line chart would be a better choice.
+
+```{r}
+abc = ggplot(data, aes(x = Year, y = Ratio, color = Products, group = Products)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~Products, scales = "free_y") +
+  labs(title = "Product Ratios Over Years",
+       x = "Year",
+       y = "Ratio") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5),
+        plot.margin = margin(t = 10, r = 10, b = 20, l = 10, unit = "pt")) +
+  scale_y_continuous(labels = scales::percent_format())
+
+gg_plotly <- ggplotly(abc)
+gg_plotly
+```
+
+### What we can get in this Line chart.
+
+The percent of pharmaceuticals has fluctuated from year to year but is on an overall upward trend: as can be seen from the chart, the share of pharmaceuticals has gradually risen from about 73% in 2015 to nearly 78% in 2022, although there have been some years of small declines in the process. This indicates that the share of the pharmaceuticals market is increasing year-on-year.
+<br>
+The percent of the Health Products is declining year on year: the share of health products is declining year on year from 8.5% in 2015 to around 6% in 2022. This indicates that people are becoming healthier and fewer people are relying on health products.
+<br>
+Herbs (Herbs) share declines after peaking in 2019: The share of herbs begins to decline after peaking at nearly 9% in 2019.
+<br>
+Instruments Share Increases Significantly in 2021: The share of Instruments increases significantly in 2021, reaching nearly 9%, which suggests that new Instruments may have been introduced into the market that year, or that there is a significant increase in demand for Instruments in areas such as healthcare and research.
+<br>
+Decrease in the share of other categories on a yearly basis: the share of Other categories decreases on a yearly basis from more than 6% in 2015 to less than 4% in 2022.
+<br>
+In summary, this visualization chart reveals the trends in the market share of different product categories between 2015 and 2022, providing valuable information for market analysis and forecasting. Companies and investors can utilize this information to make more informed decisions.
+
+## Redesign Visualization2.
+
+
+### Original Graph
+![Original Visualizaion](/Users/zijiehe/Desktop/midimg/redesign2/Badgraph.jpg)
+
+### Introduction
+
+This map shows the area where the hurricane made landfall, identified by the light blue color. The path of the hurricane visible on the map covers the Gulf of Mexico, the Caribbean, and the southeastern United States. Around the image, their longitude and latitude are shown, but we don't know exactly where the hurricane occurred.
+<br>
+
+### Reasons for choosing this image
+
+1. It does not provide information on the intensity, speed of movement, or specific timing of the hurricane.
+2. Showing the location of the hurricane's landfall is not clear, we have to visually inspect it by using the latitude and longitude indicated on the outside of the table.
+3. We can't analyze hurricanes, we can't compare information about their strength, timing, etc., and we can't analyze at all the times when hurricanes are most likely to occur, or the intensity levels of hurricanes.
+4. Indicates that the hurricane's color is similar to the background color and the picture is not very friendly. It is hard to read.
+<br>
+
+### Suggestions for enhancing visualization:
+
+1. Add interactive features. This will help us to analyze a specific type of hurricane or hurricanes with the same characteristics. <br>
+2. mark the location of hurricane landfall with some opposite color to the background, this will help us to identify the location of hurricane landfall more easily. <br>
+3. add more information to the hurricane (e.g. specific landfall time, specific longitude and latitude, wind strength). <br>
+4. Add filters. Analyze hurricanes of different strengths separately, which helps us to take different protective measures for different places. <br>
+
+### Dataset
+![Dataset](/Users/zijiehe/Desktop/midimg/redesign2/dataset.jpg)
+<br>
+
+### Special efforts
+
+The data on this site cannot be downloaded directly, we need to extract the data using python.
+<br>
+First, I need to INSPECT the html structure of the site, then find where the dataset is located, then extract the data using beautifulsoup. Use a csv to save the extracted data.
+But the data is messy and duplicated, all linked together. I want to use pandas for data cleaning. After cleaning the excess data, deal with null values. Then read the CSV using R.
+<br>
+![Dataset](/Users/zijiehe/Desktop/midimg/redesign2/WechatIMG586.jpg)
+
+
+
+### Redesign Visualization
+
+```{r}
+#| warning: false
+
+df <- read.csv("/Users/zijiehe/Desktop/hurricanedata.csv", sep = ";", header = TRUE)
+
+df$SSHWS = as.factor(df$SSHWS)
+df <- df %>%
+  mutate(
+    Latitude = as.numeric(gsub("N$", "", Latitude)),
+    Longitude = as.numeric(gsub("W$", "", Longitude)) * -1
+  )
+
+```
+
+```{r}
+#| warning: false
+
+df = df %>% select(c('Date','SSHWS','Latitude','Longitude','LandfallCountry','StormNames'))
+
+set.seed(423)
+df.sub = sample_n(df, 50) 
+
+
+pal1 = colorFactor(c('red','green','blue','orange','violet',
+                     'yellow','grey','purple',
+                     'white'), domain  =df.sub$SSHWS)
+
+leaflet(df.sub) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircles(lng = ~Longitude,
+             lat = ~Latitude,
+             weight = 8, 
+             opacity = .75, 
+             color = ~pal1(SSHWS) , 
+             popup = ~paste("Date: ", Date,
+                            "<br>Latitude: ", Latitude,
+                            "<br>Longitude: ", Longitude,
+                            "<br>Landfall Country: ", LandfallCountry,
+                            "<br>Storm Names: ", StormNames,
+                            "<br>SSHWS: ", SSHWS)
+  ) 
+```
+
+
+### Analysis the original graph and the redesign graph.
+
+#### Advantage of the design visualization.
+  Interactive Hurricane Landfall Visualization: 
+  <br>
+  I used point markers to show where the hurricane made landfall and added labels to each point (the labels contain their basic information). Analysts can use this information to gain a better understanding of the hurricane and predict where future hurricanes may make landfall.
+  Color-coded Intensity Representation:
+  <br>
+  I have used different colors to represent the different intensities of the hurricanes, there are five different intensities in total, and I have used colors that differ from the background to differentiate them.
+  Detailed Hurricane Information on Click:
+  <br>
+  Clicking on each point (where the hurricane made landfall) will give you detailed information about the hurricane.
+  
+#### Disadvantage of the original visualization.
+  No information was provided on the hurricane.
+  Visual inspection is required to determine the location of the hurricane, and the location of the hurricane is displayed using a large irregular graphic that makes it impossible to determine the exact location of the hurricane.
+
+
+
+```{r results = 'hide'}
+#| warning: false
+
+ui <- fluidPage(
+  titlePanel("Dynamic SSHWS Category Visualization"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("sshwsInput", "Select SSHWS Category:",
+                  choices = c("All", unique(as.character(df$SSHWS))),
+                  selected = "All"), 
+      
+      selectInput("mapTypeInput", "Select Map Type:",
+                  choices = c("Esri.WorldStreetMap", "Esri.WorldImagery", "Esri.WorldTerrain", "Esri.NatGeoWorldMap"),
+                  selected = "Esri.WorldTerrain")
+    ),
+    mainPanel(
+      leafletOutput("map")
+    )
+  )
+)
+
+# Define server logic
+server <- function(input, output) {
+  output$map <- renderLeaflet({
+    data <- if(input$sshwsInput != "All") {
+      df %>% filter(SSHWS == input$sshwsInput)
+    } else {
+      df
+    }
+    
+    leaflet(data) %>%
+      {
+        switch(input$mapTypeInput,
+               "Esri.WorldStreetMap" = addProviderTiles(.,"Esri.WorldStreetMap"),
+               "Esri.WorldImagery" = addProviderTiles(.,"Esri.WorldImagery"),
+               "Esri.WorldTerrain" = addProviderTiles(.,"Esri.WorldTerrain"),
+               "Esri.NatGeoWorldMap" = addProviderTiles(.,"Esri.NatGeoWorldMap"),
+               addTiles(.)
+        )
+      } %>%
+    addCircles(lng = ~Longitude,
+             lat = ~Latitude,
+             weight = 5, 
+             opacity = .75, 
+             color = ~pal1(SSHWS) , 
+             popup = ~paste("Date: ", Date,
+                            "<br>Latitude: ", Latitude,
+                            "<br>Longitude: ", Longitude,
+                            "<br>Landfall Country: ", LandfallCountry,
+                            "<br>Storm Names: ", StormNames,
+                            "<br>SSHWS: ", SSHWS))
+  })
+}
+
+
+# Run the application
+shinyApp(ui = ui, server = server)
+```
+
+
+
+### shiny function
+
+#### I added the shiny feature which shows different categories. In this example, I wanted to study the landfall of hurricanes of different intensities and use different backgrounds to display them (different backgrounds help to display them more clearly).
+
+![](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG590.jpg){.sample width="200" height="auto"}
+
+#### I used the WorldStreet background here because I chose to show the landfall of a hurricane with an intensity of 2. It has a blue point color to more clearly indicate exactly where they made landfall.
+
+
+![](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG589.jpg){.shinyfunction2 width="200" height="auto"}
+
+#### I used worldterrain's background here because his background color is white and it's easier to show the hurricane landfall. We can switch the SSHWS of the hurricane at will. for example, we can look at the landfall of a hurricane with intensity 1. This helps us to analyze the hurricane's landfall.
+
+
+### Using shiny function on the visualization.
+  In order to better compare information on hurricane landfalls of different intensities and thus more accurately predict future hurricane landfalls. I used the shiny function and filtered out the distribution of 5 hurricanes of different intensities, meaning that I can view the landfall locations of hurricanes of different intensities individually in order to have a better understanding of the hurricanes. For example, category 5 hurricanes like to make landfall on the east coast of Mexico, so the corresponding cities need to step up their protective measures.
+
+### What we can get in the redesign visualization.
+
+Different colors represent different levels of hurricanes: according to the provided information, these charts use various colors to represent the Saffir-Simpson Hurricane Wind Scale (SSHWS). This classification system categorizes hurricanes based on their maximum sustained wind speeds, ranging from Category 1 (weakest) to Category 5 (strongest). 
+
+By observing the geographical distribution patterns of different hurricane categories, it can be noticed that certain regions are more prone to higher category impacts. For example, high-category landfalling hurricanes frequently occur along the Gulf of Mexico coast, Florida Peninsula, and the southeastern coast of the United States. 
+
+Comparing the distribution patterns on maps reveals that while high-category frequencies may be lower, they tend to concentrate in specific vulnerable areas.
+
+### Redesign visualization by using bar chart.
+
+
+```{r}
+#| warning: false
+
+df$Date <- as.Date(df$Date, format = "%m/%d/%Y")
+df$Decade <- floor(year(df$Date) / 10) * 10  
+
+df_summary <- df %>%
+  group_by(Decade, SSHWS) %>%
+  summarise(Count = n(), .groups = 'drop')
+
+a = ggplot(df_summary, aes(x = as.factor(Decade), y = Count, fill = as.factor(SSHWS))) +
+  geom_bar(stat = "identity", position = "stack") +
+  scale_fill_brewer(palette = "Spectral", name = "SSHWS Level") +
+  labs(title = "Hurricane Landfalls by Decade and SSHWS Category",
+       x = "Decade",
+       y = "Number of Landfalls") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+gg_plotly <- ggplotly(a)
+gg_plotly
+
+```
+
+```{r}
+#| warning: false
+
+ui <- fluidPage(
+  titlePanel("Hurricane Landfalls Visualization"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("sshws", "Select SSHWS Category:",
+                  choices = c("All", levels(df$SSHWS))),
+      selectInput("decade", "Select Decade:",
+                  choices = c("All", unique(df$Decade)))
+    ),
+    mainPanel(
+      plotOutput("hurricanePlot")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$hurricanePlot <- renderPlot({
+    data_filtered <- df %>%
+      filter((SSHWS == input$sshws | input$sshws == "All") &
+               (Decade == input$decade | input$decade == "All"))
+    
+    ggplot(data_filtered, aes(x = as.factor(Decade), fill = SSHWS)) +
+      geom_bar(position = "stack") +
+      labs(title = "Hurricane Landfalls by Decade and SSHWS Category",
+           x = "Decade",
+           y = "Number of Landfalls",
+           fill = "SSHWS Category") +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+![](/Users/zijiehe/Desktop/midimg/new/WechatIMG596.jpg){.shinyfunction3 width="200" height="auto"}
+
+![](/Users/zijiehe/Desktop/midimg/new/WechatIMG597.jpg){.shinyfunction4 width="200" height="auto"}
+
+### Reference
+
+Graph and Dataset: <br>
+Url: http://www.hyey.com/contents/29/13119.html <br>
+From: Anhui Huayuan Medicine News <br>
+Email: 490073403@qq.com <br>
+Phone: (+86)0558-8233999 <br>
+Updated Date: 2023-06-28 <br>
+
+
+Graph and Dataset: <br>
+Url: https://www.aoml.noaa.gov/hrd/hurdat/International_Hurricanes.html <br>
+From: Hurricane Research Division <br>
+Copyright © 2024 NOAA's Atlantic Oceanographic and Meteorological Laboratory. All Rights Reserved. <br>

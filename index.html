@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-03-09">
+
+<title>Mid Term Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="index_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="index_files/libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="index_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="index_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="index_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="index_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="index_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="index_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="index_files/libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="index_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="index_files/libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="index_files/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="index_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="index_files/libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="index_files/libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="index_files/libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mid Term Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 9, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="group6-nemalhabib-aida-zijie-he" class="level2">
+<h2 class="anchored" data-anchor-id="group6-nemalhabib-aida-zijie-he">Group6: Nemalhabib Aida, Zijie He</h2>
+</section>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p>This projects aims to redesign bad graphs</p>
+<section id="pie-chartbad-graph" class="level3">
+<h3 class="anchored" data-anchor-id="pie-chartbad-graph">Pie Chart(Bad graph)</h3>
+<p><img src="/Users/zijiehe/Desktop/midimg/WechatIMG568.jpg" class="img-fluid" alt="Original Visualizaion"> <br></p>
+</section>
+<section id="reasons-for-choosing-this-image" class="level3">
+<h3 class="anchored" data-anchor-id="reasons-for-choosing-this-image">Reasons for choosing this image</h3>
+<ol type="1">
+<li>The width of the rings in the graph (indicating the magnitude of the ratio or value) is difficult to compare accurately.</li>
+<li>Complex and hard to read.The area of each circle is difficult to calculate, involving radius and circumference. So difficult to compare and read.</li>
+<li>Multiple elements in the same plane. For example, year and type are completely unrelated variables, but both appear inside the circle at the same time.</li>
+<li>A lot of wasted space, we can see that the center circle and the space around the edges are unusable.</li>
+<li>Only the growth rate of individual elements can be compared. In this pie chart, the relationship between the growth of the pharmaceuticals and other categories can only be seen in the figure <br></li>
+</ol>
+</section>
+<section id="suggestions-for-enhancing-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="suggestions-for-enhancing-visualization">Suggestions for enhancing visualization:</h3>
+<p><br> 1. Use stacked bar charts to show the categorization of medicines. Using bars of the same area to represent the distribution of different classes of drugs for each year will be clearer than circles of varying area size. We can easily see how they are categorized. And there is no illusion that the total amount in 2022 will definitely be larger than that in 2015.<br> 2. use XY axis, bar, and legend to separate the different variables, don’t have other variables in the same plane, X-axis indicates the year, Y-axis indicates their percentage.<br> 3. use the same color for one category without creating a confusing visual effect.<br> 4. add interactive function at the same time, add filtering function, that is, to be able to clearly compare one or more categories of goods per year percentage change.<br></p>
+</section>
+<section id="dataset" class="level3">
+<h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="/Users/zijiehe/Desktop/midimg/WechatIMG567.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Dataset</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="special-efforts" class="level2">
+<h2 class="anchored" data-anchor-id="special-efforts">Special efforts</h2>
+<p>Here, his dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br> <img src="/Users/zijiehe/Desktop/midimg/WechatIMG569.jpg" class="img-fluid" alt="Extract the data"> <br></p>
+<section id="redesign-visualization." class="level3">
+<h3 class="anchored" data-anchor-id="redesign-visualization.">Redesign Visualization.</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#read the CSV and change the format of each variable.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/zijiehe/Desktop/midpie.csv"</span>) </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Year <span class="ot">=</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>Year)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Products <span class="ot">=</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>Products)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Ratio <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"%"</span>, <span class="st">""</span>, data<span class="sc">$</span>Ratio)) <span class="sc">/</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use ggplot to create the visualization.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>gg <span class="ot">=</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> Ratio, <span class="at">fill =</span> Products)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Percentage"</span>, <span class="at">fill =</span> <span class="st">"Product Type"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Product Type Contributions by Year (Stacked)"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="analysis-the-original-graph-and-the-redesign-graph." class="level3">
+<h3 class="anchored" data-anchor-id="analysis-the-original-graph-and-the-redesign-graph.">Analysis the original graph and the redesign graph.</h3>
+<section id="advantage-of-the-redesign-visualization." class="level4">
+<h4 class="anchored" data-anchor-id="advantage-of-the-redesign-visualization.">Advantage of the redesign visualization.</h4>
+<p>The stacked bar chart displaying “Product Type Contributions by Year.” This visualization efficiently conveys the change in product type proportions over multiple years, making it easy to track trends and compare categories across different times. Its strengths include clarity in showing each product type’s share within a year and facilitating comparison between years.</p>
+</section>
+<section id="disadvantage-of-the-original-visualization." class="level4">
+<h4 class="anchored" data-anchor-id="disadvantage-of-the-original-visualization.">Disadvantage of the original visualization.</h4>
+<p>Conversely, the pie chart presents a circular, nested pie chart illustrating similar data. This format, while visually appealing, can be challenging to interpret precisely, especially for smaller segments. The readability of specific data points, like exact percentages, can be hindered by the chart’s concentric circles layout, which might confuse viewers trying to compare data across years.</p>
+<p>Overall, the stacked bar chart is superior in presenting data over time, offering a clearer, more accessible comparison of categories across years. It avoids the potential for confusion inherent in the nested pie chart’s design, providing a straightforward way to understand the distribution and evolution of product types over time.</p>
+</section>
+</section>
+</section>
+<section id="add-interactive-function." class="level2">
+<h2 class="anchored" data-anchor-id="add-interactive-function.">Add interactive function.</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#interactive function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>gg_plotly <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(gg)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>gg_plotly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f3125cc8b931e0d81f2a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f3125cc8b931e0d81f2a">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947],"base":[0.91600000000000004,0.92068273092369479,0.92107892107892098,0.91999999999999993,0.92599999999999993,0.93399999999999994,0.93557978196233904,0.94194194194194192],"x":[1,2,3,4,5,6,7,8],"y":[0.083999999999999964,0.079317269076305208,0.078921078921079024,0.080000000000000071,0.074000000000000066,0.066000000000000059,0.064420218037660959,0.058058058058058082],"text":["as.factor(Year): 2015<br />Ratio: 0.08400000<br />Products: Health Products","as.factor(Year): 2016<br />Ratio: 0.07931727<br />Products: Health Products","as.factor(Year): 2017<br />Ratio: 0.07892108<br />Products: Health Products","as.factor(Year): 2018<br />Ratio: 0.08000000<br />Products: Health Products","as.factor(Year): 2019<br />Ratio: 0.07400000<br />Products: Health Products","as.factor(Year): 2020<br />Ratio: 0.06600000<br />Products: Health Products","as.factor(Year): 2021<br />Ratio: 0.06442022<br />Products: Health Products","as.factor(Year): 2022<br />Ratio: 0.05805806<br />Products: Health Products"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Health Products","legendgroup":"Health Products","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947],"base":[0.82600000000000007,0.8263052208835342,0.82317682317682317,0.82499999999999996,0.83799999999999997,0.85699999999999998,0.85926660059464821,0.86786786786786774],"x":[1,2,3,4,5,6,7,8],"y":[0.089999999999999969,0.094377510040160595,0.097902097902097807,0.094999999999999973,0.087999999999999967,0.076999999999999957,0.07631318136769083,0.074074074074074181],"text":["as.factor(Year): 2015<br />Ratio: 0.09000000<br />Products: Herbs","as.factor(Year): 2016<br />Ratio: 0.09437751<br />Products: Herbs","as.factor(Year): 2017<br />Ratio: 0.09790210<br />Products: Herbs","as.factor(Year): 2018<br />Ratio: 0.09500000<br />Products: Herbs","as.factor(Year): 2019<br />Ratio: 0.08800000<br />Products: Herbs","as.factor(Year): 2020<br />Ratio: 0.07700000<br />Products: Herbs","as.factor(Year): 2021<br />Ratio: 0.07631318<br />Products: Herbs","as.factor(Year): 2022<br />Ratio: 0.07407407<br />Products: Herbs"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Herbs","legendgroup":"Herbs","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947],"base":[0.77800000000000002,0.77911646586345384,0.77622377622377614,0.77999999999999992,0.79199999999999993,0.76900000000000002,0.79881070366699702,0.80280280280280281],"x":[1,2,3,4,5,6,7,8],"y":[0.048000000000000043,0.047188755020080353,0.046953046953047028,0.04500000000000004,0.046000000000000041,0.087999999999999967,0.060455896927651187,0.065065065065064931],"text":["as.factor(Year): 2015<br />Ratio: 0.04800000<br />Products: Instruments","as.factor(Year): 2016<br />Ratio: 0.04718876<br />Products: Instruments","as.factor(Year): 2017<br />Ratio: 0.04695305<br />Products: Instruments","as.factor(Year): 2018<br />Ratio: 0.04500000<br />Products: Instruments","as.factor(Year): 2019<br />Ratio: 0.04600000<br />Products: Instruments","as.factor(Year): 2020<br />Ratio: 0.08800000<br />Products: Instruments","as.factor(Year): 2021<br />Ratio: 0.06045590<br />Products: Instruments","as.factor(Year): 2022<br />Ratio: 0.06506507<br />Products: Instruments"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Instruments","legendgroup":"Instruments","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947],"base":[0.71400000000000008,0.71987951807228912,0.7172827172827172,0.73399999999999999,0.75599999999999989,0.73299999999999998,0.76412289395441024,0.76776776776776767],"x":[1,2,3,4,5,6,7,8],"y":[0.063999999999999946,0.059236947791164729,0.058941058941058944,0.04599999999999993,0.036000000000000032,0.036000000000000032,0.034687809712586781,0.035035035035035134],"text":["as.factor(Year): 2015<br />Ratio: 0.06400000<br />Products: Others","as.factor(Year): 2016<br />Ratio: 0.05923695<br />Products: Others","as.factor(Year): 2017<br />Ratio: 0.05894106<br />Products: Others","as.factor(Year): 2018<br />Ratio: 0.04600000<br />Products: Others","as.factor(Year): 2019<br />Ratio: 0.03600000<br />Products: Others","as.factor(Year): 2020<br />Ratio: 0.03600000<br />Products: Others","as.factor(Year): 2021<br />Ratio: 0.03468781<br />Products: Others","as.factor(Year): 2022<br />Ratio: 0.03503504<br />Products: Others"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Others","legendgroup":"Others","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947],"base":[0,0,0,0,0,0,0,0],"x":[1,2,3,4,5,6,7,8],"y":[0.71400000000000008,0.71987951807228912,0.7172827172827172,0.73399999999999999,0.75599999999999989,0.73299999999999998,0.76412289395441024,0.76776776776776767],"text":["as.factor(Year): 2015<br />Ratio: 0.71400000<br />Products: pharmaceuticals","as.factor(Year): 2016<br />Ratio: 0.71987952<br />Products: pharmaceuticals","as.factor(Year): 2017<br />Ratio: 0.71728272<br />Products: pharmaceuticals","as.factor(Year): 2018<br />Ratio: 0.73400000<br />Products: pharmaceuticals","as.factor(Year): 2019<br />Ratio: 0.75600000<br />Products: pharmaceuticals","as.factor(Year): 2020<br />Ratio: 0.73300000<br />Products: pharmaceuticals","as.factor(Year): 2021<br />Ratio: 0.76412289<br />Products: pharmaceuticals","as.factor(Year): 2022<br />Ratio: 0.76776777<br />Products: pharmaceuticals"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"pharmaceuticals","legendgroup":"pharmaceuticals","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826498,"l":48.949771689497723},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Product Type Contributions by Year (Stacked)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,8.5999999999999996],"tickmode":"array","ticktext":["2015","2016","2017","2018","2019","2020","2021","2022"],"tickvals":[1,2,3,4,5,6,7,8],"categoryorder":"array","categoryarray":["2015","2016","2017","2018","2019","2020","2021","2022"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.050000000000000003,1.05],"tickmode":"array","ticktext":["0%","25%","50%","75%","100%"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0%","25%","50%","75%","100%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Percentage","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Product Type","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"2d67841f21b":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"2d67841f21b","visdat":{"2d67841f21b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<section id="although-this-table-is-much-better-than-the-original-it-is-still-difficult-to-compare-specific-variables.-so-weve-added-plotlys-interactive-features.-in-this-feature-we-can-hide-the-specified-variables-and-show-the-ones-we-want-to-analyze.-at-the-same-time-we-can-zoom-in-and-out-of-the-image-which-helps-us-to-analyze-the-visualization-in-more-depth." class="level4">
+<h4 class="anchored" data-anchor-id="although-this-table-is-much-better-than-the-original-it-is-still-difficult-to-compare-specific-variables.-so-weve-added-plotlys-interactive-features.-in-this-feature-we-can-hide-the-specified-variables-and-show-the-ones-we-want-to-analyze.-at-the-same-time-we-can-zoom-in-and-out-of-the-image-which-helps-us-to-analyze-the-visualization-in-more-depth.">Although this table is much better than the original, it is still difficult to compare specific variables. So we’ve added plotly’s interactive features. In this feature, we can hide the specified variables and show the ones we want to analyze. At the same time, we can zoom in and out of the image, which helps us to analyze the visualization in more depth.</h4>
+</section>
+<section id="we-can-also-download-and-save-images-enlarged-reduced-original-at-any-time.-when-we-move-the-mouse-over-the-bar-we-can-use-the-tabs-to-get-to-know-the-specific-values-and-attributes-you-can-choose-to-show-the-attributes-of-one-variable-or-multiple-variables." class="level4">
+<h4 class="anchored" data-anchor-id="we-can-also-download-and-save-images-enlarged-reduced-original-at-any-time.-when-we-move-the-mouse-over-the-bar-we-can-use-the-tabs-to-get-to-know-the-specific-values-and-attributes-you-can-choose-to-show-the-attributes-of-one-variable-or-multiple-variables.">We can also download and save images (enlarged, reduced, original) at any time. When we move the mouse over the bar, we can use the tabs to get to know the specific values and attributes (you can choose to show the attributes of one variable or multiple variables).</h4>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using shiny function</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Dynamic Product Type Contributions by Year"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">checkboxGroupInput</span>(<span class="st">"selectedProducts"</span>, <span class="st">"Choose product types:"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">choices =</span> <span class="fu">unique</span>(data<span class="sc">$</span>Products),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                         <span class="at">selected =</span> <span class="fu">unique</span>(data<span class="sc">$</span>Products)),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotlyOutput</span>(<span class="st">"stackedBarPlot"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>stackedBarPlot <span class="ot">&lt;-</span> <span class="fu">renderPlotly</span>({</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    filtered_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Products <span class="sc">%in%</span> input<span class="sc">$</span>selectedProducts) <span class="sc">%&gt;%</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.factor</span>(Year))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Ratio, <span class="at">fill =</span> Products)) <span class="sc">+</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Percentage"</span>, <span class="at">title =</span> <span class="st">"Product Type Contributions by Year (Stacked)"</span>) <span class="sc">+</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_minimal</span>()</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplotly</span>(p)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="using-shiny-function-on-the-visualization." class="level3">
+<h3 class="anchored" data-anchor-id="using-shiny-function-on-the-visualization.">Using shiny function on the visualization.</h3>
+<p>The visualization already has an interactive feature, but one of the drawbacks of the original graph (not being able to compare the growth rates of specific variables as the years increase) has not yet been implemented; we can’t directly compare the growth rates of the three variables that are in the middle of the bar. For this reason, we added the shiny function and filtered out specific variables, using the filter function to show one or more of the specific variables individually.</p>
+</section>
+<section id="shiny-function-results." class="level3">
+<h3 class="anchored" data-anchor-id="shiny-function-results.">Shiny function results.</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG591.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Shiny Function</figcaption>
+</figure>
+</div>
+</section>
+<section id="what-we-can-get-in-this-chart." class="level3">
+<h3 class="anchored" data-anchor-id="what-we-can-get-in-this-chart.">What we can get in this chart.</h3>
+<section id="pharmaceuticals-for-the-majority-of-the-market-much-higher-than-other-types-of-products-which-shows-that-drugs-are-the-most-important-category-in-the-market.-and-as-you-can-see-from-the-graph-its-position-is-relatively-stable." class="level4">
+<h4 class="anchored" data-anchor-id="pharmaceuticals-for-the-majority-of-the-market-much-higher-than-other-types-of-products-which-shows-that-drugs-are-the-most-important-category-in-the-market.-and-as-you-can-see-from-the-graph-its-position-is-relatively-stable.">pharmaceuticals for the majority of the market, much higher than other types of products, which shows that drugs are the most important category in the market. And as you can see from the graph, its position is relatively stable.</h4>
+</section>
+<section id="the-share-of-the-other-four-categories-is-smaller-and-the-change-from-2015-to-2022-is-more-stable.-it-shows-that-the-market-is-relatively-stable.-consumer-and-patient-demand-for-these-categories-is-stable." class="level4">
+<h4 class="anchored" data-anchor-id="the-share-of-the-other-four-categories-is-smaller-and-the-change-from-2015-to-2022-is-more-stable.-it-shows-that-the-market-is-relatively-stable.-consumer-and-patient-demand-for-these-categories-is-stable.">The share of the other four categories is smaller, and the change from 2015 to 2022 is more stable. It shows that the market is relatively stable. Consumer and patient demand for these categories is stable.</h4>
+</section>
+<section id="in-general-each-bar-counts-the-proportion-of-different-categories-of-drugs-giving-a-macro-view-of-the-drug-market.-these-trends-allow-entrepreneurs-and-pharmaceutical-manufacturers-to-develop-a-clear-market-strategy-and-focus-on-product-development." class="level4">
+<h4 class="anchored" data-anchor-id="in-general-each-bar-counts-the-proportion-of-different-categories-of-drugs-giving-a-macro-view-of-the-drug-market.-these-trends-allow-entrepreneurs-and-pharmaceutical-manufacturers-to-develop-a-clear-market-strategy-and-focus-on-product-development.">In general, each bar counts the proportion of different categories of drugs, giving a macro view of the drug market. These trends allow entrepreneurs and pharmaceutical manufacturers to develop a clear market strategy and focus on product development.</h4>
+</section>
+<section id="the-use-of-the-shiny-function-enhances-the-analysis-of-our-projects-by-allowing-us-to-select-specific-categories-to-analyze-which-does-not-allow-us-to-make-confusion-and-errors-due-to-the-large-number-of-categories-but-allows-us-to-analyze-a-single-category-or-a-few-categories." class="level4">
+<h4 class="anchored" data-anchor-id="the-use-of-the-shiny-function-enhances-the-analysis-of-our-projects-by-allowing-us-to-select-specific-categories-to-analyze-which-does-not-allow-us-to-make-confusion-and-errors-due-to-the-large-number-of-categories-but-allows-us-to-analyze-a-single-category-or-a-few-categories.">The use of the shiny function enhances the analysis of our projects by allowing us to select specific categories to analyze, which does not allow us to make confusion and errors due to the large number of categories, but allows us to analyze a single category or a few categories.</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG592.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Shiny Function</figcaption>
+</figure>
+</div>
+</section>
+<section id="this-graph-shows-only-two-categories-which-helps-us-to-compare-the-distribution-of-the-two-as-well-as-the-growth.-also-this-image-is-simpler-than-the-5-category-visualization-and-we-are-able-to-read-it-more-clearly." class="level4">
+<h4 class="anchored" data-anchor-id="this-graph-shows-only-two-categories-which-helps-us-to-compare-the-distribution-of-the-two-as-well-as-the-growth.-also-this-image-is-simpler-than-the-5-category-visualization-and-we-are-able-to-read-it-more-clearly.">This graph shows only two categories, which helps us to compare the distribution of the two as well as the growth. Also this image is simpler than the 5 category visualization and we are able to read it more clearly.</h4>
+</section>
+</section>
+<section id="using-line-chart" class="level3">
+<h3 class="anchored" data-anchor-id="using-line-chart">Using Line Chart</h3>
+<section id="the-bar-chart-helps-us-to-better-analyze-the-architectural-changes-in-the-drug-category-from-2015-to-2022.-but-if-we-want-to-discuss-the-change-in-the-share-of-each-specific-drug-more-directly-a-line-chart-would-be-a-better-choice." class="level4">
+<h4 class="anchored" data-anchor-id="the-bar-chart-helps-us-to-better-analyze-the-architectural-changes-in-the-drug-category-from-2015-to-2022.-but-if-we-want-to-discuss-the-change-in-the-share-of-each-specific-drug-more-directly-a-line-chart-would-be-a-better-choice.">The bar chart helps us to better analyze the architectural changes in the drug category from 2015 to 2022. But if we want to discuss the change in the share of each specific drug more directly, a line chart would be a better choice.</h4>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>abc <span class="ot">=</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Ratio, <span class="at">color =</span> Products, <span class="at">group =</span> Products)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Products, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Product Ratios Over Years"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ratio"</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">10</span>, <span class="at">b =</span> <span class="dv">20</span>, <span class="at">l =</span> <span class="dv">10</span>, <span class="at">unit =</span> <span class="st">"pt"</span>)) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>())</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>gg_plotly <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(abc)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>gg_plotly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a113d5f421d46ad2b0d5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a113d5f421d46ad2b0d5">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8],"y":[0.084000000000000005,0.079000000000000001,0.079000000000000001,0.080000000000000002,0.07400000000000001,0.066000000000000003,0.065000000000000002,0.057999999999999996],"text":["Year: 2015<br />Ratio: 0.084<br />Products: Health Products<br />Products: Health Products","Year: 2016<br />Ratio: 0.079<br />Products: Health Products<br />Products: Health Products","Year: 2017<br />Ratio: 0.079<br />Products: Health Products<br />Products: Health Products","Year: 2018<br />Ratio: 0.080<br />Products: Health Products<br />Products: Health Products","Year: 2019<br />Ratio: 0.074<br />Products: Health Products<br />Products: Health Products","Year: 2020<br />Ratio: 0.066<br />Products: Health Products<br />Products: Health Products","Year: 2021<br />Ratio: 0.065<br />Products: Health Products<br />Products: Health Products","Year: 2022<br />Ratio: 0.058<br />Products: Health Products<br />Products: Health Products"],"type":"scatter","mode":"lines+markers","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"Health Products","legendgroup":"Health Products","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"frame":null},{"x":[1,2,3,4,5,6,7,8],"y":[0.089999999999999997,0.094,0.098000000000000004,0.095000000000000001,0.088000000000000009,0.076999999999999999,0.076999999999999999,0.07400000000000001],"text":["Year: 2015<br />Ratio: 0.090<br />Products: Herbs<br />Products: Herbs","Year: 2016<br />Ratio: 0.094<br />Products: Herbs<br />Products: Herbs","Year: 2017<br />Ratio: 0.098<br />Products: Herbs<br />Products: Herbs","Year: 2018<br />Ratio: 0.095<br />Products: Herbs<br />Products: Herbs","Year: 2019<br />Ratio: 0.088<br />Products: Herbs<br />Products: Herbs","Year: 2020<br />Ratio: 0.077<br />Products: Herbs<br />Products: Herbs","Year: 2021<br />Ratio: 0.077<br />Products: Herbs<br />Products: Herbs","Year: 2022<br />Ratio: 0.074<br />Products: Herbs<br />Products: Herbs"],"type":"scatter","mode":"lines+markers","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)","dash":"solid"},"hoveron":"points","name":"Herbs","legendgroup":"Herbs","showlegend":true,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"frame":null},{"x":[1,2,3,4,5,6,7,8],"y":[0.048000000000000001,0.047,0.047,0.044999999999999998,0.045999999999999999,0.088000000000000009,0.060999999999999999,0.065000000000000002],"text":["Year: 2015<br />Ratio: 0.048<br />Products: Instruments<br />Products: Instruments","Year: 2016<br />Ratio: 0.047<br />Products: Instruments<br />Products: Instruments","Year: 2017<br />Ratio: 0.047<br />Products: Instruments<br />Products: Instruments","Year: 2018<br />Ratio: 0.045<br />Products: Instruments<br />Products: Instruments","Year: 2019<br />Ratio: 0.046<br />Products: Instruments<br />Products: Instruments","Year: 2020<br />Ratio: 0.088<br />Products: Instruments<br />Products: Instruments","Year: 2021<br />Ratio: 0.061<br />Products: Instruments<br />Products: Instruments","Year: 2022<br />Ratio: 0.065<br />Products: Instruments<br />Products: Instruments"],"type":"scatter","mode":"lines+markers","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)","dash":"solid"},"hoveron":"points","name":"Instruments","legendgroup":"Instruments","showlegend":true,"xaxis":"x3","yaxis":"y3","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"frame":null},{"x":[1,2,3,4,5,6,7,8],"y":[0.064000000000000001,0.059000000000000004,0.059000000000000004,0.045999999999999999,0.036000000000000004,0.036000000000000004,0.035000000000000003,0.035000000000000003],"text":["Year: 2015<br />Ratio: 0.064<br />Products: Others<br />Products: Others","Year: 2016<br />Ratio: 0.059<br />Products: Others<br />Products: Others","Year: 2017<br />Ratio: 0.059<br />Products: Others<br />Products: Others","Year: 2018<br />Ratio: 0.046<br />Products: Others<br />Products: Others","Year: 2019<br />Ratio: 0.036<br />Products: Others<br />Products: Others","Year: 2020<br />Ratio: 0.036<br />Products: Others<br />Products: Others","Year: 2021<br />Ratio: 0.035<br />Products: Others<br />Products: Others","Year: 2022<br />Ratio: 0.035<br />Products: Others<br />Products: Others"],"type":"scatter","mode":"lines+markers","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)","dash":"solid"},"hoveron":"points","name":"Others","legendgroup":"Others","showlegend":true,"xaxis":"x","yaxis":"y4","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"frame":null},{"x":[1,2,3,4,5,6,7,8],"y":[0.71400000000000008,0.71700000000000008,0.71799999999999997,0.7340000000000001,0.75599999999999989,0.73299999999999998,0.77099999999999991,0.76700000000000002],"text":["Year: 2015<br />Ratio: 0.714<br />Products: pharmaceuticals<br />Products: pharmaceuticals","Year: 2016<br />Ratio: 0.717<br />Products: pharmaceuticals<br />Products: pharmaceuticals","Year: 2017<br />Ratio: 0.718<br />Products: pharmaceuticals<br />Products: pharmaceuticals","Year: 2018<br />Ratio: 0.734<br />Products: pharmaceuticals<br />Products: pharmaceuticals","Year: 2019<br />Ratio: 0.756<br />Products: pharmaceuticals<br />Products: pharmaceuticals","Year: 2020<br />Ratio: 0.733<br />Products: pharmaceuticals<br />Products: pharmaceuticals","Year: 2021<br />Ratio: 0.771<br />Products: pharmaceuticals<br />Products: pharmaceuticals","Year: 2022<br />Ratio: 0.767<br />Products: pharmaceuticals<br />Products: pharmaceuticals"],"type":"scatter","mode":"lines+markers","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)","dash":"solid"},"hoveron":"points","name":"pharmaceuticals","legendgroup":"pharmaceuticals","showlegend":true,"xaxis":"x2","yaxis":"y5","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"frame":null}],"layout":{"margin":{"t":63.820672478206731,"r":13.283520132835205,"b":78.837691988376932,"l":54.927355749273573},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Product Ratios Over Years","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,0.28668287572397161],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,8.5999999999999996],"tickmode":"array","ticktext":["2015","2016","2017","2018","2019","2020","2021","2022"],"tickvals":[1,2,3,4,5,6,7,8],"categoryorder":"array","categoryarray":["2015","2016","2017","2018","2019","2020","2021","2022"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y4","title":"","hoverformat":".2f"},"annotations":[{"text":"Year","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-33.607305936073061},{"text":"Ratio","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-33.607305936073068},{"text":"Health Products","x":0.1433414378619858,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Herbs","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Instruments","x":0.85665856213801417,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Others","x":0.1433414378619858,"y":0.4604261796042618,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"pharmaceuticals","x":0.5,"y":0.4604261796042618,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"yaxis":{"domain":[0.5395738203957382,1],"automargin":true,"type":"linear","autorange":false,"range":[0.056699999999999993,0.085300000000000001],"tickmode":"array","ticktext":["6.0%","6.5%","7.0%","7.5%","8.0%","8.5%"],"tickvals":[0.059999999999999998,0.065000000000000002,0.070000000000000007,0.074999999999999997,0.080000000000000002,0.084999999999999992],"categoryorder":"array","categoryarray":["6.0%","6.5%","7.0%","7.5%","8.0%","8.5%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":0.28668287572397161,"y0":0.5395738203957382,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.28668287572397161,"y0":0,"y1":23.37899543378996,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.37998379094269502,"x1":0.62001620905730492,"y0":0.5395738203957382,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.37998379094269502,"x1":0.62001620905730492,"y0":0,"y1":23.37899543378996,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.71331712427602834,"x1":1,"y0":0.5395738203957382,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.71331712427602834,"x1":1,"y0":0,"y1":23.37899543378996,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":0.28668287572397161,"y0":0,"y1":0.4604261796042618},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.28668287572397161,"y0":0,"y1":23.37899543378996,"yanchor":0.4604261796042618,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.37998379094269502,"x1":0.62001620905730492,"y0":0,"y1":0.4604261796042618},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.37998379094269502,"x1":0.62001620905730492,"y0":0,"y1":23.37899543378996,"yanchor":0.4604261796042618,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[0.40000000000000002,8.5999999999999996],"tickmode":"array","ticktext":["2015","2016","2017","2018","2019","2020","2021","2022"],"tickvals":[1,2,3,4,5,6,7,8],"categoryorder":"array","categoryarray":["2015","2016","2017","2018","2019","2020","2021","2022"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.37998379094269502,0.62001620905730492],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y5","title":"","hoverformat":".2f"},"yaxis2":{"type":"linear","autorange":false,"range":[0.072800000000000004,0.09920000000000001],"tickmode":"array","ticktext":["8%","9%"],"tickvals":[0.080000000000000002,0.090000000000000011],"categoryorder":"array","categoryarray":["8%","9%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.5395738203957382,1],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x2","title":"","hoverformat":".2f"},"xaxis3":{"type":"linear","autorange":false,"range":[0.40000000000000002,8.5999999999999996],"tickmode":"array","ticktext":["2015","2016","2017","2018","2019","2020","2021","2022"],"tickvals":[1,2,3,4,5,6,7,8],"categoryorder":"array","categoryarray":["2015","2016","2017","2018","2019","2020","2021","2022"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.71331712427602834,1],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y3","title":"","hoverformat":".2f"},"yaxis3":{"type":"linear","autorange":false,"range":[0.042849999999999999,0.090150000000000008],"tickmode":"array","ticktext":["5.0%","6.0%","7.0%","8.0%","9.0%"],"tickvals":[0.050000000000000003,0.059999999999999998,0.070000000000000007,0.080000000000000002,0.089999999999999997],"categoryorder":"array","categoryarray":["5.0%","6.0%","7.0%","8.0%","9.0%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.5395738203957382,1],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x3","title":"","hoverformat":".2f"},"yaxis4":{"type":"linear","autorange":false,"range":[0.033550000000000003,0.065450000000000008],"tickmode":"array","ticktext":["4%","5%","6%"],"tickvals":[0.040000000000000001,0.050000000000000003,0.059999999999999998],"categoryorder":"array","categoryarray":["4%","5%","6%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,0.4604261796042618],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"yaxis5":{"type":"linear","autorange":false,"range":[0.71115000000000006,0.77384999999999993],"tickmode":"array","ticktext":["72%","73%","74%","75%","76%","77%"],"tickvals":[0.71999999999999997,0.72999999999999998,0.73999999999999999,0.75,0.76000000000000001,0.77000000000000002],"categoryorder":"array","categoryarray":["72%","73%","74%","75%","76%","77%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,0.4604261796042618],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x2","title":"","hoverformat":".2f"},"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Products","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"2d673e210142":{"x":{},"y":{},"colour":{},"type":"scatter"},"2d6768d9b3eb":{"x":{},"y":{},"colour":{}}},"cur_data":"2d673e210142","visdat":{"2d673e210142":["function (y) ","x"],"2d6768d9b3eb":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="what-we-can-get-in-this-line-chart." class="level3">
+<h3 class="anchored" data-anchor-id="what-we-can-get-in-this-line-chart.">What we can get in this Line chart.</h3>
+<p>The percent of pharmaceuticals has fluctuated from year to year but is on an overall upward trend: as can be seen from the chart, the share of pharmaceuticals has gradually risen from about 73% in 2015 to nearly 78% in 2022, although there have been some years of small declines in the process. This indicates that the share of the pharmaceuticals market is increasing year-on-year. <br> The percent of the Health Products is declining year on year: the share of health products is declining year on year from 8.5% in 2015 to around 6% in 2022. This indicates that people are becoming healthier and fewer people are relying on health products. <br> Herbs (Herbs) share declines after peaking in 2019: The share of herbs begins to decline after peaking at nearly 9% in 2019. <br> Instruments Share Increases Significantly in 2021: The share of Instruments increases significantly in 2021, reaching nearly 9%, which suggests that new Instruments may have been introduced into the market that year, or that there is a significant increase in demand for Instruments in areas such as healthcare and research. <br> Decrease in the share of other categories on a yearly basis: the share of Other categories decreases on a yearly basis from more than 6% in 2015 to less than 4% in 2022. <br> In summary, this visualization chart reveals the trends in the market share of different product categories between 2015 and 2022, providing valuable information for market analysis and forecasting. Companies and investors can utilize this information to make more informed decisions.</p>
+</section>
+</section>
+<section id="redesign-visualization2." class="level2">
+<h2 class="anchored" data-anchor-id="redesign-visualization2.">Redesign Visualization2.</h2>
+<section id="original-graph" class="level3">
+<h3 class="anchored" data-anchor-id="original-graph">Original Graph</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="/Users/zijiehe/Desktop/midimg/redesign2/Badgraph.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Original Visualizaion</figcaption>
+</figure>
+</div>
+</section>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>This map shows the area where the hurricane made landfall, identified by the light blue color. The path of the hurricane visible on the map covers the Gulf of Mexico, the Caribbean, and the southeastern United States. Around the image, their longitude and latitude are shown, but we don’t know exactly where the hurricane occurred. <br></p>
+</section>
+<section id="reasons-for-choosing-this-image-1" class="level3">
+<h3 class="anchored" data-anchor-id="reasons-for-choosing-this-image-1">Reasons for choosing this image</h3>
+<ol type="1">
+<li>It does not provide information on the intensity, speed of movement, or specific timing of the hurricane.</li>
+<li>Showing the location of the hurricane’s landfall is not clear, we have to visually inspect it by using the latitude and longitude indicated on the outside of the table.</li>
+<li>We can’t analyze hurricanes, we can’t compare information about their strength, timing, etc., and we can’t analyze at all the times when hurricanes are most likely to occur, or the intensity levels of hurricanes.</li>
+<li>Indicates that the hurricane’s color is similar to the background color and the picture is not very friendly. It is hard to read. <br></li>
+</ol>
+</section>
+<section id="suggestions-for-enhancing-visualization-1" class="level3">
+<h3 class="anchored" data-anchor-id="suggestions-for-enhancing-visualization-1">Suggestions for enhancing visualization:</h3>
+<ol type="1">
+<li>Add interactive features. This will help us to analyze a specific type of hurricane or hurricanes with the same characteristics. <br></li>
+<li>mark the location of hurricane landfall with some opposite color to the background, this will help us to identify the location of hurricane landfall more easily. <br></li>
+<li>add more information to the hurricane (e.g.&nbsp;specific landfall time, specific longitude and latitude, wind strength). <br></li>
+<li>Add filters. Analyze hurricanes of different strengths separately, which helps us to take different protective measures for different places. <br></li>
+</ol>
+</section>
+<section id="dataset-1" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-1">Dataset</h3>
+<p><img src="/Users/zijiehe/Desktop/midimg/redesign2/dataset.jpg" class="img-fluid" alt="Dataset"> <br></p>
+</section>
+<section id="special-efforts-1" class="level3">
+<h3 class="anchored" data-anchor-id="special-efforts-1">Special efforts</h3>
+<p>The data on this site cannot be downloaded directly, we need to extract the data using python. <br> First, I need to INSPECT the html structure of the site, then find where the dataset is located, then extract the data using beautifulsoup. Use a csv to save the extracted data. But the data is messy and duplicated, all linked together. I want to use pandas for data cleaning. After cleaning the excess data, deal with null values. Then read the CSV using R. <br> <img src="/Users/zijiehe/Desktop/midimg/redesign2/WechatIMG586.jpg" class="img-fluid" alt="Dataset"></p>
+</section>
+<section id="redesign-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="redesign-visualization">Redesign Visualization</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/zijiehe/Desktop/hurricanedata.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>SSHWS <span class="ot">=</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>SSHWS)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Latitude =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"N$"</span>, <span class="st">""</span>, Latitude)),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Longitude =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"W$"</span>, <span class="st">""</span>, Longitude)) <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">'Date'</span>,<span class="st">'SSHWS'</span>,<span class="st">'Latitude'</span>,<span class="st">'Longitude'</span>,<span class="st">'LandfallCountry'</span>,<span class="st">'StormNames'</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">423</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df.sub <span class="ot">=</span> <span class="fu">sample_n</span>(df, <span class="dv">50</span>) </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>pal1 <span class="ot">=</span> <span class="fu">colorFactor</span>(<span class="fu">c</span>(<span class="st">'red'</span>,<span class="st">'green'</span>,<span class="st">'blue'</span>,<span class="st">'orange'</span>,<span class="st">'violet'</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'yellow'</span>,<span class="st">'grey'</span>,<span class="st">'purple'</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'white'</span>), <span class="at">domain  =</span>df.sub<span class="sc">$</span>SSHWS)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(df.sub) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">"Esri.WorldImagery"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircles</span>(<span class="at">lng =</span> <span class="sc">~</span>Longitude,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>Latitude,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">weight =</span> <span class="dv">8</span>, </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">opacity =</span> .<span class="dv">75</span>, </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="sc">~</span><span class="fu">pal1</span>(SSHWS) , </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(<span class="st">"Date: "</span>, Date,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Latitude: "</span>, Latitude,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Longitude: "</span>, Longitude,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Landfall Country: "</span>, LandfallCountry,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Storm Names: "</span>, StormNames,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;SSHWS: "</span>, SSHWS)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-4cab04651e57dae6ceef" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-4cab04651e57dae6ceef">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[12.4,22.3,20.7,13.6,18.5,17.5,19.6,24.2,16.8,21.6,17.7,21.9,21.4,22.6,25.9,16.3,22.2,21.5,20.7,20,18.4,17.4,32.3,19.3,24.4,17.4,22.3,22.3,20.1,24.6,19.1,16.2,18.1,20.5,21.5,23.9,16.2,18.1,22.4,22.2,22.7,46.6,12.2,20,26.5,18.2,16.1,26.6,18,20.6],[-83.59999999999999,-97.90000000000001,-97.3,-83.5,-64.5,-61.7,-73.40000000000001,-97.7,-88.3,-71.5,-61.8,-84.3,-71.09999999999999,-97.90000000000001,-97.2,-61.3,-83.90000000000001,-82.59999999999999,-78.09999999999999,-74.90000000000001,-87.8,-64.8,-64.7,-96.2,-77.7,-83.90000000000001,-82.09999999999999,-77.90000000000001,-74.5,-75.59999999999999,-87.7,-88.8,-72.8,-97,-82.90000000000001,-97.7,-61.6,-63.1,-83.09999999999999,-83.7,-82.59999999999999,-53.2,-61.6,-96.90000000000001,-77,-72.59999999999999,-86.90000000000001,-78.2,-63,-97.09999999999999],10,null,null,{"interactive":true,"className":"","stroke":true,"color":["#FF0000","#EE82EE","#FF0000","#BEBEBE","#FF0000","#FF0000","#0000FF","#0000FF","#FF0000","#FF0000","#FFFFFF","#0000FF","#EE82EE","#FF0000","#EE82EE","#BEBEBE","#FF0000","#FF0000","#0000FF","#EE82EE","#FFFFFF","#BEBEBE","#FF0000","#EE82EE","#FF0000","#FFFFFF","#EE82EE","#FFFFFF","#FF0000","#EE82EE","#FF0000","#0000FF","#FF0000","#FF0000","#0000FF","#EE82EE","#EE82EE","#FFFFFF","#BEBEBE","#EE82EE","#EE82EE","#FF0000","#FF0000","#FF0000","#FFFFFF","#EE82EE","#FF0000","#0000FF","#FF0000","#EE82EE"],"weight":8,"opacity":0.75,"fill":true,"fillColor":["#FF0000","#EE82EE","#FF0000","#BEBEBE","#FF0000","#FF0000","#0000FF","#0000FF","#FF0000","#FF0000","#FFFFFF","#0000FF","#EE82EE","#FF0000","#EE82EE","#BEBEBE","#FF0000","#FF0000","#0000FF","#EE82EE","#FFFFFF","#BEBEBE","#FF0000","#EE82EE","#FF0000","#FFFFFF","#EE82EE","#FFFFFF","#FF0000","#EE82EE","#FF0000","#0000FF","#FF0000","#FF0000","#0000FF","#EE82EE","#EE82EE","#FFFFFF","#BEBEBE","#EE82EE","#EE82EE","#FF0000","#FF0000","#FF0000","#FFFFFF","#EE82EE","#FF0000","#0000FF","#FF0000","#EE82EE"],"fillOpacity":0.2},["Date:  10/09/2022 <br>Latitude:  12.4 <br>Longitude:  -83.6 <br>Landfall Country:  Nicaragua <br>Storm Names:  Julia <br>SSHWS:  1","Date:  9/19/1955 <br>Latitude:  22.3 <br>Longitude:  -97.9 <br>Landfall Country:  Mexico <br>Storm Names:  Hilda <br>SSHWS:  3","Date:  9/3/1988 <br>Latitude:  20.7 <br>Longitude:  -97.3 <br>Landfall Country:  Mexico <br>Storm Names:  Debby <br>SSHWS:  1","Date:  11/17/2020 <br>Latitude:  13.6 <br>Longitude:  -83.5 <br>Landfall Country:  Nicaragua <br>Storm Names:  Iota <br>SSHWS:  4","Date:  7/8/1996 <br>Latitude:  18.5 <br>Longitude:  -64.5 <br>Landfall Country:  British Virgin Islands <br>Storm Names:  Bertha <br>SSHWS:  1","Date:  8/22/2000 <br>Latitude:  17.5 <br>Longitude:  -61.7 <br>Landfall Country:  Barbuda <br>Storm Names:  Debby <br>SSHWS:  1","Date:  10/13/1954 <br>Latitude:  19.6 <br>Longitude:  -73.4 <br>Landfall Country:  Haiti <br>Storm Names:  Hazel <br>SSHWS:  2","Date:  7/1/2010 <br>Latitude:  24.2 <br>Longitude:  -97.7 <br>Landfall Country:  Mexico <br>Storm Names:  Alex <br>SSHWS:  2","Date:  09/03/2020 <br>Latitude:  16.8 <br>Longitude:  -88.3 <br>Landfall Country:  Belize <br>Storm Names:  Nana <br>SSHWS:  1","Date:  11/18/1985 <br>Latitude:  21.6 <br>Longitude:  -71.5 <br>Landfall Country:  Turks and Caicos <br>Storm Names:  Kate <br>SSHWS:  1","Date:  09/06/2017 <br>Latitude:  17.7 <br>Longitude:  -61.8 <br>Landfall Country:  Barbuda <br>Storm Names:  Irma <br>SSHWS:  5","Date:  08/15/1969 <br>Latitude:  21.9 <br>Longitude:  -84.3 <br>Landfall Country:  Cuba <br>Storm Names:  Camille <br>SSHWS:  2","Date:  09/20/2022 <br>Latitude:  21.4 <br>Longitude:  -71.1 <br>Landfall Country:  Turks and Caicos <br>Storm Names:  Fiona <br>SSHWS:  3","Date:  10/5/2000 <br>Latitude:  22.6 <br>Longitude:  -97.9 <br>Landfall Country:  Mexico <br>Storm Names:  Keith <br>SSHWS:  1","Date:  09/20/1967 <br>Latitude:  25.9 <br>Longitude:  -97.2 <br>Landfall Country:  Mexico <br>Storm Names:  Beulah <br>SSHWS:  3","Date:  9/17/1989 <br>Latitude:  16.3 <br>Longitude:  -61.3 <br>Landfall Country:  Guadeloupe <br>Storm Names:  Hugo <br>SSHWS:  4","Date:  10/7/1946 <br>Latitude:  22.2 <br>Longitude:  -83.9 <br>Landfall Country:  Cuba <br>Storm Names:  NA <br>SSHWS:  1","Date:  9/3/1950 <br>Latitude:  21.5 <br>Longitude:  -82.6 <br>Landfall Country:  Cuba <br>Storm Names:  Easy <br>SSHWS:  1","Date:  10/07/1963 <br>Latitude:  20.7 <br>Longitude:  -78.1 <br>Landfall Country:  Cuba <br>Storm Names:  Flora <br>SSHWS:  2","Date:  10/04/1963 <br>Latitude:  20 <br>Longitude:  -74.9 <br>Landfall Country:  Cuba <br>Storm Names:  Flora <br>SSHWS:  3","Date:  9/28/1955 <br>Latitude:  18.4 <br>Longitude:  -87.8 <br>Landfall Country:  Mexico <br>Storm Names:  Janet <br>SSHWS:  5","Date:  11/17/1999 <br>Latitude:  17.4 <br>Longitude:  -64.8 <br>Landfall Country:  US Virgin Islands <br>Storm Names:  Lenny <br>SSHWS:  4","Date:  10/12/2014 <br>Latitude:  32.3 <br>Longitude:  -64.7 <br>Landfall Country:  Bermuda <br>Storm Names:  Fay <br>SSHWS:  1","Date:  9/17/2010 <br>Latitude:  19.3 <br>Longitude:  -96.2 <br>Landfall Country:  Mexico <br>Storm Names:  Karl <br>SSHWS:  3","Date:  08/01/2020 <br>Latitude:  24.4 <br>Longitude:  -77.7 <br>Landfall Country:  Bahamas <br>Storm Names:  Isaias <br>SSHWS:  1","Date:  9/27/1955 <br>Latitude:  17.4 <br>Longitude:  -83.9 <br>Landfall Country:  Swan Island <br>Storm Names:  Janet <br>SSHWS:  5","Date:  9/20/1948 <br>Latitude:  22.3 <br>Longitude:  -82.1 <br>Landfall Country:  Cuba <br>Storm Names:  El Huracan de Matanzas <br>SSHWS:  3","Date:  09/09/2017 <br>Latitude:  22.3 <br>Longitude:  -77.9 <br>Landfall Country:  Cuba <br>Storm Names:  Irma <br>SSHWS:  5","Date:  9/23/1998 <br>Latitude:  20.1 <br>Longitude:  -74.5 <br>Landfall Country:  Cuba <br>Storm Names:  Georges <br>SSHWS:  1","Date:  9/3/2004 <br>Latitude:  24.6 <br>Longitude:  -75.6 <br>Landfall Country:  Bahamas <br>Storm Names:  Frances <br>SSHWS:  3","Date:  8/20/1996 <br>Latitude:  19.1 <br>Longitude:  -87.7 <br>Landfall Country:  Mexico <br>Storm Names:  Dolly <br>SSHWS:  1","Date:  09/03/1969 <br>Latitude:  16.2 <br>Longitude:  -88.8 <br>Landfall Country:  Belize <br>Storm Names:  Francelia <br>SSHWS:  2","Date:  8/26/2008 <br>Latitude:  18.1 <br>Longitude:  -72.8 <br>Landfall Country:  Haiti <br>Storm Names:  Gustav <br>SSHWS:  1","Date:  9/28/2007 <br>Latitude:  20.5 <br>Longitude:  -97 <br>Landfall Country:  Mexico <br>Storm Names:  Lorenzo <br>SSHWS:  1","Date:  06/08/1966 <br>Latitude:  21.5 <br>Longitude:  -82.9 <br>Landfall Country:  Cuba <br>Storm Names:  Alma <br>SSHWS:  2","Date:  09/12/1970 <br>Latitude:  23.9 <br>Longitude:  -97.7 <br>Landfall Country:  Mexico <br>Storm Names:  Ella <br>SSHWS:  3","Date:  09/27/1966 <br>Latitude:  16.2 <br>Longitude:  -61.6 <br>Landfall Country:  Guadeloupe <br>Storm Names:  Inez <br>SSHWS:  3","Date:  09/06/2017 <br>Latitude:  18.1 <br>Longitude:  -63.1 <br>Landfall Country:  St. Martin <br>Storm Names:  Irma <br>SSHWS:  5","Date:  8/30/2008 <br>Latitude:  22.4 <br>Longitude:  -83.1 <br>Landfall Country:  Cuba <br>Storm Names:  Gustav <br>SSHWS:  4","Date:  09/27/2022 <br>Latitude:  22.2 <br>Longitude:  -83.7 <br>Landfall Country:  Cuba <br>Storm Names:  Ian <br>SSHWS:  3","Date:  8/13/2004 <br>Latitude:  22.7 <br>Longitude:  -82.6 <br>Landfall Country:  Cuba <br>Storm Names:  Charley <br>SSHWS:  3","Date:  9/21/2010 <br>Latitude:  46.6 <br>Longitude:  -53.2 <br>Landfall Country:  Canada <br>Storm Names:  Igor <br>SSHWS:  1","Date:  10/6/1954 <br>Latitude:  12.2 <br>Longitude:  -61.6 <br>Landfall Country:  Grenada <br>Storm Names:  Hazel <br>SSHWS:  1","Date:  08/10/2017 <br>Latitude:  20 <br>Longitude:  -96.9 <br>Landfall Country:  Mexico <br>Storm Names:  Franklin <br>SSHWS:  1","Date:  09/01/2019 <br>Latitude:  26.5 <br>Longitude:  -77 <br>Landfall Country:  Bahamas <br>Storm Names:  Dorian <br>SSHWS:  5","Date:  09/29/1966 <br>Latitude:  18.2 <br>Longitude:  -72.6 <br>Landfall Country:  Haiti <br>Storm Names:  Inez <br>SSHWS:  3","Date:  07/24/1961 <br>Latitude:  16.1 <br>Longitude:  -86.9 <br>Landfall Country:  Honduras <br>Storm Names:  Anna <br>SSHWS:  1","Date:  9/4/2004 <br>Latitude:  26.6 <br>Longitude:  -78.2 <br>Landfall Country:  Bahamas <br>Storm Names:  Frances <br>SSHWS:  2","Date:  1/2/1955 <br>Latitude:  18 <br>Longitude:  -63 <br>Landfall Country:  St. Martin <br>Storm Names:  Alice <br>SSHWS:  1","Date:  08/21/2021 <br>Latitude:  20.6 <br>Longitude:  -97.1 <br>Landfall Country:  Mexico <br>Storm Names:  Grace <br>SSHWS:  3"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[12.2,46.6],"lng":[-97.90000000000001,-53.2]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="analysis-the-original-graph-and-the-redesign-graph.-1" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-the-original-graph-and-the-redesign-graph.-1">Analysis the original graph and the redesign graph.</h3>
+<section id="advantage-of-the-design-visualization." class="level4">
+<h4 class="anchored" data-anchor-id="advantage-of-the-design-visualization.">Advantage of the design visualization.</h4>
+<p>Interactive Hurricane Landfall Visualization: <br> I used point markers to show where the hurricane made landfall and added labels to each point (the labels contain their basic information). Analysts can use this information to gain a better understanding of the hurricane and predict where future hurricanes may make landfall. Color-coded Intensity Representation: <br> I have used different colors to represent the different intensities of the hurricanes, there are five different intensities in total, and I have used colors that differ from the background to differentiate them. Detailed Hurricane Information on Click: <br> Clicking on each point (where the hurricane made landfall) will give you detailed information about the hurricane.</p>
+</section>
+<section id="disadvantage-of-the-original-visualization.-1" class="level4">
+<h4 class="anchored" data-anchor-id="disadvantage-of-the-original-visualization.-1">Disadvantage of the original visualization.</h4>
+<p>No information was provided on the hurricane. Visual inspection is required to determine the location of the hurricane, and the location of the hurricane is displayed using a large irregular graphic that makes it impossible to determine the exact location of the hurricane.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Dynamic SSHWS Category Visualization"</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"sshwsInput"</span>, <span class="st">"Select SSHWS Category:"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"All"</span>, <span class="fu">unique</span>(<span class="fu">as.character</span>(df<span class="sc">$</span>SSHWS))),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"All"</span>), </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"mapTypeInput"</span>, <span class="st">"Select Map Type:"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"Esri.WorldStreetMap"</span>, <span class="st">"Esri.WorldImagery"</span>, <span class="st">"Esri.WorldTerrain"</span>, <span class="st">"Esri.NatGeoWorldMap"</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"Esri.WorldTerrain"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">leafletOutput</span>(<span class="st">"map"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>map <span class="ot">&lt;-</span> <span class="fu">renderLeaflet</span>({</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> <span class="cf">if</span>(input<span class="sc">$</span>sshwsInput <span class="sc">!=</span> <span class="st">"All"</span>) {</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>      df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(SSHWS <span class="sc">==</span> input<span class="sc">$</span>sshwsInput)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>      df</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">leaflet</span>(data) <span class="sc">%&gt;%</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">switch</span>(input<span class="sc">$</span>mapTypeInput,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Esri.WorldStreetMap"</span> <span class="ot">=</span> <span class="fu">addProviderTiles</span>(.,<span class="st">"Esri.WorldStreetMap"</span>),</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Esri.WorldImagery"</span> <span class="ot">=</span> <span class="fu">addProviderTiles</span>(.,<span class="st">"Esri.WorldImagery"</span>),</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Esri.WorldTerrain"</span> <span class="ot">=</span> <span class="fu">addProviderTiles</span>(.,<span class="st">"Esri.WorldTerrain"</span>),</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Esri.NatGeoWorldMap"</span> <span class="ot">=</span> <span class="fu">addProviderTiles</span>(.,<span class="st">"Esri.NatGeoWorldMap"</span>),</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>               <span class="fu">addTiles</span>(.)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>      } <span class="sc">%&gt;%</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addCircles</span>(<span class="at">lng =</span> <span class="sc">~</span>Longitude,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>             <span class="at">lat =</span> <span class="sc">~</span>Latitude,</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>             <span class="at">weight =</span> <span class="dv">5</span>, </span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>             <span class="at">opacity =</span> .<span class="dv">75</span>, </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="sc">~</span><span class="fu">pal1</span>(SSHWS) , </span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>             <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste</span>(<span class="st">"Date: "</span>, Date,</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Latitude: "</span>, Latitude,</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Longitude: "</span>, Longitude,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Landfall Country: "</span>, LandfallCountry,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;Storm Names: "</span>, StormNames,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"&lt;br&gt;SSHWS: "</span>, SSHWS))</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="shiny-function" class="level3">
+<h3 class="anchored" data-anchor-id="shiny-function">shiny function</h3>
+<section id="i-added-the-shiny-feature-which-shows-different-categories.-in-this-example-i-wanted-to-study-the-landfall-of-hurricanes-of-different-intensities-and-use-different-backgrounds-to-display-them-different-backgrounds-help-to-display-them-more-clearly." class="level4">
+<h4 class="anchored" data-anchor-id="i-added-the-shiny-feature-which-shows-different-categories.-in-this-example-i-wanted-to-study-the-landfall-of-hurricanes-of-different-intensities-and-use-different-backgrounds-to-display-them-different-backgrounds-help-to-display-them-more-clearly.">I added the shiny feature which shows different categories. In this example, I wanted to study the landfall of hurricanes of different intensities and use different backgrounds to display them (different backgrounds help to display them more clearly).</h4>
+<p><img src="/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG590.jpg" class="sample" width="200"></p>
+</section>
+<section id="i-used-the-worldstreet-background-here-because-i-chose-to-show-the-landfall-of-a-hurricane-with-an-intensity-of-2.-it-has-a-blue-point-color-to-more-clearly-indicate-exactly-where-they-made-landfall." class="level4">
+<h4 class="anchored" data-anchor-id="i-used-the-worldstreet-background-here-because-i-chose-to-show-the-landfall-of-a-hurricane-with-an-intensity-of-2.-it-has-a-blue-point-color-to-more-clearly-indicate-exactly-where-they-made-landfall.">I used the WorldStreet background here because I chose to show the landfall of a hurricane with an intensity of 2. It has a blue point color to more clearly indicate exactly where they made landfall.</h4>
+<p><img src="/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG589.jpg" class="shinyfunction2" width="200"></p>
+</section>
+<section id="i-used-worldterrains-background-here-because-his-background-color-is-white-and-its-easier-to-show-the-hurricane-landfall.-we-can-switch-the-sshws-of-the-hurricane-at-will.-for-example-we-can-look-at-the-landfall-of-a-hurricane-with-intensity-1.-this-helps-us-to-analyze-the-hurricanes-landfall." class="level4">
+<h4 class="anchored" data-anchor-id="i-used-worldterrains-background-here-because-his-background-color-is-white-and-its-easier-to-show-the-hurricane-landfall.-we-can-switch-the-sshws-of-the-hurricane-at-will.-for-example-we-can-look-at-the-landfall-of-a-hurricane-with-intensity-1.-this-helps-us-to-analyze-the-hurricanes-landfall.">I used worldterrain’s background here because his background color is white and it’s easier to show the hurricane landfall. We can switch the SSHWS of the hurricane at will. for example, we can look at the landfall of a hurricane with intensity 1. This helps us to analyze the hurricane’s landfall.</h4>
+</section>
+</section>
+<section id="using-shiny-function-on-the-visualization.-1" class="level3">
+<h3 class="anchored" data-anchor-id="using-shiny-function-on-the-visualization.-1">Using shiny function on the visualization.</h3>
+<p>In order to better compare information on hurricane landfalls of different intensities and thus more accurately predict future hurricane landfalls. I used the shiny function and filtered out the distribution of 5 hurricanes of different intensities, meaning that I can view the landfall locations of hurricanes of different intensities individually in order to have a better understanding of the hurricanes. For example, category 5 hurricanes like to make landfall on the east coast of Mexico, so the corresponding cities need to step up their protective measures.</p>
+</section>
+<section id="what-we-can-get-in-the-redesign-visualization." class="level3">
+<h3 class="anchored" data-anchor-id="what-we-can-get-in-the-redesign-visualization.">What we can get in the redesign visualization.</h3>
+<p>Different colors represent different levels of hurricanes: according to the provided information, these charts use various colors to represent the Saffir-Simpson Hurricane Wind Scale (SSHWS). This classification system categorizes hurricanes based on their maximum sustained wind speeds, ranging from Category 1 (weakest) to Category 5 (strongest).</p>
+<p>By observing the geographical distribution patterns of different hurricane categories, it can be noticed that certain regions are more prone to higher category impacts. For example, high-category landfalling hurricanes frequently occur along the Gulf of Mexico coast, Florida Peninsula, and the southeastern coast of the United States.</p>
+<p>Comparing the distribution patterns on maps reveals that while high-category frequencies may be lower, they tend to concentrate in specific vulnerable areas.</p>
+</section>
+<section id="redesign-visualization-by-using-bar-chart." class="level3">
+<h3 class="anchored" data-anchor-id="redesign-visualization-by-using-bar-chart.">Redesign visualization by using bar chart.</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>Date, <span class="at">format =</span> <span class="st">"%m/%d/%Y"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Decade <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fu">year</span>(df<span class="sc">$</span>Date) <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Decade, SSHWS) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">ggplot</span>(df_summary, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Decade), <span class="at">y =</span> Count, <span class="at">fill =</span> <span class="fu">as.factor</span>(SSHWS))) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Spectral"</span>, <span class="at">name =</span> <span class="st">"SSHWS Level"</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hurricane Landfalls by Decade and SSHWS Category"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Decade"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Landfalls"</span>) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>gg_plotly <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(a)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>gg_plotly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-ef256df814850657339d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ef256df814850657339d">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947,0.89999999999999858],"base":[6,16,29,10,17,26,27,7],"x":[1,2,3,5,6,7,8,9],"y":[2,16,8,4,12,23,15,12],"text":["as.factor(Decade): 1940<br />Count:  2<br />as.factor(SSHWS): 1","as.factor(Decade): 1950<br />Count: 16<br />as.factor(SSHWS): 1","as.factor(Decade): 1960<br />Count:  8<br />as.factor(SSHWS): 1","as.factor(Decade): 1980<br />Count:  4<br />as.factor(SSHWS): 1","as.factor(Decade): 1990<br />Count: 12<br />as.factor(SSHWS): 1","as.factor(Decade): 2000<br />Count: 23<br />as.factor(SSHWS): 1","as.factor(Decade): 2010<br />Count: 15<br />as.factor(SSHWS): 1","as.factor(Decade): 2020<br />Count: 12<br />as.factor(SSHWS): 1"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(215,25,28,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"1","legendgroup":"1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947,0.89999999999999858],"base":[4,10,19,8,12,20,19,5],"x":[1,2,3,5,6,7,8,9],"y":[2,6,10,2,5,6,8,2],"text":["as.factor(Decade): 1940<br />Count:  2<br />as.factor(SSHWS): 2","as.factor(Decade): 1950<br />Count:  6<br />as.factor(SSHWS): 2","as.factor(Decade): 1960<br />Count: 10<br />as.factor(SSHWS): 2","as.factor(Decade): 1980<br />Count:  2<br />as.factor(SSHWS): 2","as.factor(Decade): 1990<br />Count:  5<br />as.factor(SSHWS): 2","as.factor(Decade): 2000<br />Count:  6<br />as.factor(SSHWS): 2","as.factor(Decade): 2010<br />Count:  8<br />as.factor(SSHWS): 2","as.factor(Decade): 2020<br />Count:  2<br />as.factor(SSHWS): 2"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(253,174,97,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"2","legendgroup":"2","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947,0.89999999999999858],"base":[0,5,4,0,5,4,13,13,2],"x":[1,2,3,4,5,6,7,8,9],"y":[4,5,15,1,3,8,7,6,3],"text":["as.factor(Decade): 1940<br />Count:  4<br />as.factor(SSHWS): 3","as.factor(Decade): 1950<br />Count:  5<br />as.factor(SSHWS): 3","as.factor(Decade): 1960<br />Count: 15<br />as.factor(SSHWS): 3","as.factor(Decade): 1970<br />Count:  1<br />as.factor(SSHWS): 3","as.factor(Decade): 1980<br />Count:  3<br />as.factor(SSHWS): 3","as.factor(Decade): 1990<br />Count:  8<br />as.factor(SSHWS): 3","as.factor(Decade): 2000<br />Count:  7<br />as.factor(SSHWS): 3","as.factor(Decade): 2010<br />Count:  6<br />as.factor(SSHWS): 3","as.factor(Decade): 2020<br />Count:  3<br />as.factor(SSHWS): 3"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,255,191,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"3","legendgroup":"3","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947,0.89999999999999858],"base":[2,1,1,1,2,7,0],"x":[2,3,5,6,7,8,9],"y":[3,3,4,3,11,6,2],"text":["as.factor(Decade): 1950<br />Count:  3<br />as.factor(SSHWS): 4","as.factor(Decade): 1960<br />Count:  3<br />as.factor(SSHWS): 4","as.factor(Decade): 1980<br />Count:  4<br />as.factor(SSHWS): 4","as.factor(Decade): 1990<br />Count:  3<br />as.factor(SSHWS): 4","as.factor(Decade): 2000<br />Count: 11<br />as.factor(SSHWS): 4","as.factor(Decade): 2010<br />Count:  6<br />as.factor(SSHWS): 4","as.factor(Decade): 2020<br />Count:  2<br />as.factor(SSHWS): 4"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(171,221,164,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"4","legendgroup":"4","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.90000000000000036,0.89999999999999947],"base":[0,0,0,0,0,0],"x":[2,3,5,6,7,8],"y":[2,1,1,1,2,7],"text":["as.factor(Decade): 1950<br />Count:  2<br />as.factor(SSHWS): 5","as.factor(Decade): 1960<br />Count:  1<br />as.factor(SSHWS): 5","as.factor(Decade): 1980<br />Count:  1<br />as.factor(SSHWS): 5","as.factor(Decade): 1990<br />Count:  1<br />as.factor(SSHWS): 5","as.factor(Decade): 2000<br />Count:  2<br />as.factor(SSHWS): 5","as.factor(Decade): 2010<br />Count:  7<br />as.factor(SSHWS): 5"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(43,131,186,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"5","legendgroup":"5","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":42.22428554020037,"l":37.260273972602747},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Hurricane Landfalls by Decade and SSHWS Category","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,9.5999999999999996],"tickmode":"array","ticktext":["1940","1950","1960","1970","1980","1990","2000","2010","2020"],"tickvals":[1,2,3,4,5,6,6.9999999999999991,8,9],"categoryorder":"array","categoryarray":["1940","1950","1960","1970","1980","1990","2000","2010","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Decade","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.4500000000000002,51.450000000000003],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30.000000000000004,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Number of Landfalls","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"SSHWS Level","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"2d674401ea3a":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"2d674401ea3a","visdat":{"2d674401ea3a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Hurricane Landfalls Visualization"</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"sshws"</span>, <span class="st">"Select SSHWS Category:"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"All"</span>, <span class="fu">levels</span>(df<span class="sc">$</span>SSHWS))),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"decade"</span>, <span class="st">"Select Decade:"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"All"</span>, <span class="fu">unique</span>(df<span class="sc">$</span>Decade)))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"hurricanePlot"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>hurricanePlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    data_filtered <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>((SSHWS <span class="sc">==</span> input<span class="sc">$</span>sshws <span class="sc">|</span> input<span class="sc">$</span>sshws <span class="sc">==</span> <span class="st">"All"</span>) <span class="sc">&amp;</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>               (Decade <span class="sc">==</span> input<span class="sc">$</span>decade <span class="sc">|</span> input<span class="sc">$</span>decade <span class="sc">==</span> <span class="st">"All"</span>))</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Decade), <span class="at">fill =</span> SSHWS)) <span class="sc">+</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hurricane Landfalls by Decade and SSHWS Category"</span>,</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="st">"Decade"</span>,</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="st">"Number of Landfalls"</span>,</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"SSHWS Category"</span>) <span class="sc">+</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p></p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div><p></p>
+</div>
+</div>
+<p><img src="/Users/zijiehe/Desktop/midimg/new/WechatIMG596.jpg" class="shinyfunction3" width="200"></p>
+<p><img src="/Users/zijiehe/Desktop/midimg/new/WechatIMG597.jpg" class="shinyfunction4" width="200"></p>
+</section>
+<section id="reference" class="level3">
+<h3 class="anchored" data-anchor-id="reference">Reference</h3>
+<p>Graph and Dataset: <br> Url: http://www.hyey.com/contents/29/13119.html <br> From: Anhui Huayuan Medicine News <br> Email: 490073403@qq.com <br> Phone: (+86)0558-8233999 <br> Updated Date: 2023-06-28 <br></p>
+<p>Graph and Dataset: <br> Url: https://www.aoml.noaa.gov/hrd/hurdat/International_Hurricanes.html <br> From: Hurricane Research Division <br> Copyright © 2024 NOAA’s Atlantic Oceanographic and Meteorological Laboratory. All Rights Reserved. <br></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

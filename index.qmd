@@ -14,7 +14,7 @@ This projects aims to redesign bad graphs
 
 ### Pie Chart(Bad graph)
 
-![Original Visualizaion](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign1/WechatIMG568.jpg) <br>
+![Original Visualizaion](/Users/zijiehe/Desktop/STATMIDPROJECT/img/redesign1/WechatIMG568.jpg) <br>
 
 ### Reasons for choosing this image
 
@@ -377,7 +377,12 @@ gg_plotly
 
 ```
 
-
+### Analysis Plotly visualization
+  Interactive function: It allows viewers to obtain detailed information about specific data points in the chart, enhancing the user experience and data understanding.
+  Different way to show the data: We can use zoom in and zoom out to adjust the size of the chart, which can help us to locate on the specific data.
+  
+### What we can get in the plotly visualization.
+  Historical changes in hurricane activity: The visualization shows the number of landfalls of hurricanes of different SSHWS level over different decades, allowing analysis of the trends and level changes in hurricane over specific periods.
 
 ```{r}
 #| warning: false

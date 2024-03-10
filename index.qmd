@@ -14,7 +14,7 @@ This projects aims to redesign bad graphs
 
 ### Pie Chart(Bad graph)
 
-![Original Visualizaion](/Users/zijiehe/Desktop/midimg/WechatIMG568.jpg) <br>
+![Original Visualizaion](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign1/WechatIMG568.jpg) <br>
 
 ### Reasons for choosing this image
 
@@ -22,7 +22,7 @@ This projects aims to redesign bad graphs
 2.  Complex and hard to read.The area of each circle is difficult to calculate, involving radius and circumference. So difficult to compare and read.
 3.  Multiple elements in the same plane. For example, year and type are completely unrelated variables, but both appear inside the circle at the same time.
 4.  A lot of wasted space, we can see that the center circle and the space around the edges are unusable.
-5.  Only the growth rate of individual elements can be compared. In this pie chart, the relationship between the growth of the pharmaceuticals and other categories can only be seen in the figure <br>
+5.  Only the growth rate of individual elements can be compared. In this pie chart, the relationship between the growth of the pharmaceuticals and other categories can only be seen in the figure. <br>
 
 ### Suggestions for enhancing visualization:
 
@@ -34,7 +34,7 @@ This projects aims to redesign bad graphs
 
 ## Special efforts
 
-Here, his dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br> ![Extract the data](/Users/zijiehe/Desktop/midimg/WechatIMG569.jpg) <br>
+Here, the dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br> ![Extract the data](/Users/zijiehe/Desktop/midimg/WechatIMG569.jpg) <br>
 
 ### Redesign Visualization.
 
@@ -62,6 +62,7 @@ data$Ratio <- as.numeric(gsub("%", "", data$Ratio)) / 100
 gg = ggplot(data, aes(x = as.factor(Year), y = Ratio, fill = Products)) +
   geom_bar(stat = "identity", position = "fill") +
   scale_y_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
   labs(x = "Year", y = "Percentage", fill = "Product Type",
        title = "Product Type Contributions by Year (Stacked)") +
   theme_minimal()
@@ -234,16 +235,14 @@ set.seed(423)
 df.sub = sample_n(df, 50) 
 
 
-pal1 = colorFactor(c('red','green','blue','orange','violet',
-                     'yellow','grey','purple',
-                     'white'), domain  =df.sub$SSHWS)
+pal1 = colorFactor(c("#1f77b4", "#2ca02c", "#d62728", "#ff7f0e", "#9467bd", "#8c564b", "#17becf", "#7f7f7f", "#e377c2"), domain  =df.sub$SSHWS)
 
 leaflet(df.sub) %>% 
   addProviderTiles("Esri.WorldImagery") %>% 
   addCircles(lng = ~Longitude,
              lat = ~Latitude,
              weight = 8, 
-             opacity = .75, 
+             opacity = .80, 
              color = ~pal1(SSHWS) , 
              popup = ~paste("Date: ", Date,
                             "<br>Latitude: ", Latitude,
@@ -307,7 +306,7 @@ server <- function(input, output) {
     addCircles(lng = ~Longitude,
              lat = ~Latitude,
              weight = 5, 
-             opacity = .75, 
+             opacity = .80, 
              color = ~pal1(SSHWS) , 
              popup = ~paste("Date: ", Date,
                             "<br>Latitude: ", Latitude,
@@ -362,6 +361,7 @@ df_summary <- df %>%
 a = ggplot(df_summary, aes(x = as.factor(Decade), y = Count, fill = as.factor(SSHWS))) +
   geom_bar(stat = "identity", position = "stack") +
   scale_fill_brewer(palette = "Spectral", name = "SSHWS Level") +
+  scale_fill_manual(values = c("red", "#1f77b4", "#2ca02c", "#ff7f0e", "#e377c2")) +
   labs(title = "Hurricane Landfalls by Decade and SSHWS Category",
        x = "Decade",
        y = "Number of Landfalls") +
@@ -417,6 +417,6 @@ shinyApp(ui = ui, server = server)
 
 ### Reference
 
-Graph and Dataset: <br> Url: http://www.hyey.com/contents/29/13119.html <br> From: Anhui Huayuan Medicine News <br> Email: 490073403\@qq.com <br> Phone: (+86)0558-8233999 <br> Updated Date: 2023-06-28 <br>
+Anhui Huayuan Medicine News. (2023, June 28). Graph and Dataset. Retrieved from http://www.hyey.com/contents/29/13119.html <br>
 
-Graph and Dataset: <br> Url: https://www.aoml.noaa.gov/hrd/hurdat/International_Hurricanes.html <br> From: Hurricane Research Division <br> Copyright © 2024 NOAA's Atlantic Oceanographic and Meteorological Laboratory. All Rights Reserved. <br>
+Hurricane Research Division. (2024). Graph and Dataset. Retrieved from https://www.aoml.noaa.gov/hrd/hurdat/International_Hurricanes.html

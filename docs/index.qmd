@@ -30,13 +30,13 @@ This projects aims to redesign bad graphs
 
 ### Dataset
 
-![Dataset](img/redesign1/WechatIMG567.jpg)
+![Dataset](img/redesign1/WechatIMG567.jpg) <br>
 
 ## Special efforts
 
 Here, the dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br>
 
-![Extract the data](img/redesign1/WechatIMG569.jpg)
+![Extract the data](img/redesign1/WechatIMG569.jpg) <br>
 
 ### Redesign Visualization.
 
@@ -141,7 +141,7 @@ The visualization already has an interactive feature, but one of the drawbacks o
 
 ### Shiny function results.
 
-![Shiny Function](img/shinny/WechatIMG599.jpg)
+![Shiny Function](img/shinny/WechatIMG599.jpg) <br>
 
 ### What we can get in this chart.
 
@@ -153,7 +153,7 @@ The visualization already has an interactive feature, but one of the drawbacks o
 
 #### The use of the shiny function enhances the analysis of our projects by allowing us to select specific categories to analyze, which does not allow us to make confusion and errors due to the large number of categories, but allows us to analyze a single category or a few categories.
 
-![Shiny Function](img/shinny/WechatIMG600.jpg)
+![Shiny Function](img/shinny/WechatIMG600.jpg) <br>
 
 #### This graph shows only two categories, which helps us to compare the distribution of the two as well as the growth. Also this image is simpler than the 5 category visualization and we are able to read it more clearly.
 
@@ -185,7 +185,7 @@ The percent of pharmaceuticals has fluctuated from year to year but is on an ove
 
 ### Original Graph
 
-![Original Visualizaion](img/redesign2/Badgraph.jpg)
+![Original Visualizaion](img/redesign2/Badgraph.jpg) <br>
 
 ### Introduction
 
@@ -212,7 +212,8 @@ This map shows the area where the hurricane made landfall, identified by the lig
 ### Special efforts
 
 The data on this site cannot be downloaded directly, we need to extract the data using python. <br> First, I need to INSPECT the html structure of the site, then find where the dataset is located, then extract the data using beautifulsoup. Use a csv to save the extracted data. But the data is messy and duplicated, all linked together. I want to use pandas for data cleaning. After cleaning the excess data, deal with null values. Then read the CSV using R. <br>
-![Dataset](img/redesign2/WechatIMG586.jpg)
+
+![Dataset](img/redesign2/WechatIMG586.jpg) <br>
 
 ### Redesign Visualization
 
@@ -330,11 +331,11 @@ shinyApp(ui = ui, server = server)
 
 #### I added the shiny feature which shows different categories. In this example, I wanted to study the landfall of hurricanes of different intensities and use different backgrounds to display them (different backgrounds help to display them more clearly).
 
-![](img/shinny/WechatIMG590.jpg)
+![](img/shinny/WechatIMG590.jpg) <br>
 
 #### I used the WorldStreet background here because I chose to show the landfall of a hurricane with an intensity of 2. It has a blue point color to more clearly indicate exactly where they made landfall.
 
-![](img/shinny/WechatIMG589.jpg)
+![](img/shinny/WechatIMG589.jpg) <br>
 
 #### I used worldterrain's background here because his background color is white and it's easier to show the hurricane landfall. We can switch the SSHWS of the hurricane at will. for example, we can look at the landfall of a hurricane with intensity 1. This helps us to analyze the hurricane's landfall.
 
@@ -423,9 +424,9 @@ shinyApp(ui = ui, server = server)
 ```
 
 
-![](img/new/WechatIMG596.jpg)
+![](img/new/WechatIMG596.jpg) <br>
 
-![](img/new/WechatIMG597.jpg)
+![](img/new/WechatIMG597.jpg) <br>
 
 ### Add Shiny function in the bar chart.
   This visualization shows an interactive Visulalization created with the Shiny Function named "Hurricane Landfalls Visualization". Also, It is used to show us the change of landfall frequency of hurricanes on 5-level SSHWS over ten years.

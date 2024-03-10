@@ -26,10 +26,7 @@ This projects aims to redesign bad graphs
 
 ### Suggestions for enhancing visualization:
 
-1. Use stacked bar charts to show the categorization of medicines. Using bars of the same area to represent the distribution of different classes of drugs for each year will be clearer than circles of varying area size. We can easily see how they are categorized. And there is no illusion that the total amount in 2022 will definitely be larger than that in 2015.<br> 
-2. use XY axis, bar, and legend to separate the different variables, don't have other variables in the same plane, X-axis indicates the year, Y-axis indicates their percentage.<br> 
-3. use the same color for one category without creating a confusing visual effect.<br> 
-4. add interactive function at the same time, add filtering function, that is, to be able to clearly compare one or more categories of goods per year percentage change.<br>
+<br> 1. Use stacked bar charts to show the categorization of medicines. Using bars of the same area to represent the distribution of different classes of drugs for each year will be clearer than circles of varying area size. We can easily see how they are categorized. And there is no illusion that the total amount in 2022 will definitely be larger than that in 2015.<br> 2. use XY axis, bar, and legend to separate the different variables, don't have other variables in the same plane, X-axis indicates the year, Y-axis indicates their percentage.<br> 3. use the same color for one category without creating a confusing visual effect.<br> 4. add interactive function at the same time, add filtering function, that is, to be able to clearly compare one or more categories of goods per year percentage change.<br>
 
 ### Dataset
 
@@ -37,7 +34,7 @@ This projects aims to redesign bad graphs
 
 ## Special efforts
 
-  Here, the dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br>
+Here, the dataset is not given directly and I need to use beautifulsoup in python to extract the data. After extraction a csv is generated, the data generated csv is very messy, I need to use pandas for data cleaning. <br>
 
 ![Extract the data](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign1/WechatIMG569.jpg)
 
@@ -79,13 +76,13 @@ print(gg)
 
 #### Advantage of the redesign visualization.
 
-  The stacked bar chart displaying "Product Type Contributions by Year." This visualization efficiently conveys the change in product type proportions over multiple years, making it easy to track trends and compare categories across different times. Its strengths include clarity in showing each product type's share within a year and facilitating comparison between years.
+The stacked bar chart displaying "Product Type Contributions by Year." This visualization efficiently conveys the change in product type proportions over multiple years, making it easy to track trends and compare categories across different times. Its strengths include clarity in showing each product type's share within a year and facilitating comparison between years.
 
 #### Disadvantage of the original visualization.
 
-  Conversely, the pie chart presents a circular, nested pie chart illustrating similar data. This format, while visually appealing, can be challenging to interpret precisely, especially for smaller segments. The readability of specific data points, like exact percentages, can be hindered by the chart's concentric circles layout, which might confuse viewers trying to compare data across years.
+Conversely, the pie chart presents a circular, nested pie chart illustrating similar data. This format, while visually appealing, can be challenging to interpret precisely, especially for smaller segments. The readability of specific data points, like exact percentages, can be hindered by the chart's concentric circles layout, which might confuse viewers trying to compare data across years.
 
-  Overall, the stacked bar chart is superior in presenting data over time, offering a clearer, more accessible comparison of categories across years. It avoids the potential for confusion inherent in the nested pie chart's design, providing a straightforward way to understand the distribution and evolution of product types over time.
+Overall, the stacked bar chart is superior in presenting data over time, offering a clearer, more accessible comparison of categories across years. It avoids the potential for confusion inherent in the nested pie chart's design, providing a straightforward way to understand the distribution and evolution of product types over time.
 
 ## Add interactive function.
 
@@ -140,7 +137,7 @@ shinyApp(ui, server)
 
 ### Using shiny function on the visualization.
 
-  The visualization already has an interactive feature, but one of the drawbacks of the original graph (not being able to compare the growth rates of specific variables as the years increase) has not yet been implemented; we can't directly compare the growth rates of the three variables that are in the middle of the bar. For this reason, we added the shiny function and filtered out specific variables, using the filter function to show one or more of the specific variables individually.
+The visualization already has an interactive feature, but one of the drawbacks of the original graph (not being able to compare the growth rates of specific variables as the years increase) has not yet been implemented; we can't directly compare the growth rates of the three variables that are in the middle of the bar. For this reason, we added the shiny function and filtered out specific variables, using the filter function to show one or more of the specific variables individually.
 
 ### Shiny function results.
 
@@ -182,7 +179,7 @@ gg_plotly
 
 ### What we can get in this Line chart.
 
-  The percent of pharmaceuticals has fluctuated from year to year but is on an overall upward trend: as can be seen from the chart, the share of pharmaceuticals has gradually risen from about 73% in 2015 to nearly 78% in 2022, although there have been some years of small declines in the process. This indicates that the share of the pharmaceuticals market is increasing year-on-year. <br> The percent of the Health Products is declining year on year: the share of health products is declining year on year from 8.5% in 2015 to around 6% in 2022. This indicates that people are becoming healthier and fewer people are relying on health products. <br> Herbs (Herbs) share declines after peaking in 2019: The share of herbs begins to decline after peaking at nearly 9% in 2019. <br> Instruments Share Increases Significantly in 2021: The share of Instruments increases significantly in 2021, reaching nearly 9%, which suggests that new Instruments may have been introduced into the market that year, or that there is a significant increase in demand for Instruments in areas such as healthcare and research. <br> Decrease in the share of other categories on a yearly basis: the share of Other categories decreases on a yearly basis from more than 6% in 2015 to less than 4% in 2022. <br> In summary, this visualization chart reveals the trends in the market share of different product categories between 2015 and 2022, providing valuable information for market analysis and forecasting. Companies and investors can utilize this information to make more informed decisions.
+The percent of pharmaceuticals has fluctuated from year to year but is on an overall upward trend: as can be seen from the chart, the share of pharmaceuticals has gradually risen from about 73% in 2015 to nearly 78% in 2022, although there have been some years of small declines in the process. This indicates that the share of the pharmaceuticals market is increasing year-on-year. <br> The percent of the Health Products is declining year on year: the share of health products is declining year on year from 8.5% in 2015 to around 6% in 2022. This indicates that people are becoming healthier and fewer people are relying on health products. <br> Herbs (Herbs) share declines after peaking in 2019: The share of herbs begins to decline after peaking at nearly 9% in 2019. <br> Instruments Share Increases Significantly in 2021: The share of Instruments increases significantly in 2021, reaching nearly 9%, which suggests that new Instruments may have been introduced into the market that year, or that there is a significant increase in demand for Instruments in areas such as healthcare and research. <br> Decrease in the share of other categories on a yearly basis: the share of Other categories decreases on a yearly basis from more than 6% in 2015 to less than 4% in 2022. <br> In summary, this visualization chart reveals the trends in the market share of different product categories between 2015 and 2022, providing valuable information for market analysis and forecasting. Companies and investors can utilize this information to make more informed decisions.
 
 ## Redesign Visualization2.
 
@@ -192,7 +189,7 @@ gg_plotly
 
 ### Introduction
 
-  This map shows the area where the hurricane made landfall, identified by the light blue color. The path of the hurricane visible on the map covers the Gulf of Mexico, the Caribbean, and the southeastern United States. Around the image, their longitude and latitude are shown, but we don't know exactly where the hurricane occurred. <br>
+This map shows the area where the hurricane made landfall, identified by the light blue color. The path of the hurricane visible on the map covers the Gulf of Mexico, the Caribbean, and the southeastern United States. Around the image, their longitude and latitude are shown, but we don't know exactly where the hurricane occurred. <br>
 
 ### Reasons for choosing this image
 
@@ -214,8 +211,7 @@ gg_plotly
 
 ### Special efforts
 
-  The data on this site cannot be downloaded directly, we need to extract the data using python. <br> First, I need to INSPECT the html structure of the site, then find where the dataset is located, then extract the data using beautifulsoup. Use a csv to save the extracted data. But the data is messy and duplicated, all linked together. I want to use pandas for data cleaning. After cleaning the excess data, deal with null values. Then read the CSV using R. <br>
-
+The data on this site cannot be downloaded directly, we need to extract the data using python. <br> First, I need to INSPECT the html structure of the site, then find where the dataset is located, then extract the data using beautifulsoup. Use a csv to save the extracted data. But the data is messy and duplicated, all linked together. I want to use pandas for data cleaning. After cleaning the excess data, deal with null values. Then read the CSV using R. <br>
 ![Dataset](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign2/WechatIMG586.jpg)
 
 ### Redesign Visualization
@@ -265,11 +261,11 @@ leaflet(df.sub) %>%
 
 #### Advantage of the design visualization.
 
-  Interactive Hurricane Landfall Visualization: <br> I used point markers to show where the hurricane made landfall and added labels to each point (the labels contain their basic information). Analysts can use this information to gain a better understanding of the hurricane and predict where future hurricanes may make landfall. Color-coded Intensity Representation: <br> I have used different colors to represent the different intensities of the hurricanes, there are five different intensities in total, and I have used colors that differ from the background to differentiate them. Detailed Hurricane Information on Click: <br> Clicking on each point (where the hurricane made landfall) will give you detailed information about the hurricane.
+Interactive Hurricane Landfall Visualization: <br> I used point markers to show where the hurricane made landfall and added labels to each point (the labels contain their basic information). Analysts can use this information to gain a better understanding of the hurricane and predict where future hurricanes may make landfall. Color-coded Intensity Representation: <br> I have used different colors to represent the different intensities of the hurricanes, there are five different intensities in total, and I have used colors that differ from the background to differentiate them. Detailed Hurricane Information on Click: <br> Clicking on each point (where the hurricane made landfall) will give you detailed information about the hurricane.
 
 #### Disadvantage of the original visualization.
 
-  No information was provided on the hurricane. Visual inspection is required to determine the location of the hurricane, and the location of the hurricane is displayed using a large irregular graphic that makes it impossible to determine the exact location of the hurricane.
+No information was provided on the hurricane. Visual inspection is required to determine the location of the hurricane, and the location of the hurricane is displayed using a large irregular graphic that makes it impossible to determine the exact location of the hurricane.
 
 ```{r results = 'hide'}
 #| warning: false

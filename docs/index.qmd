@@ -384,7 +384,7 @@ gg_plotly
 ### What we can get in the plotly visualization.
   Historical changes in hurricane activity: The visualization shows the number of landfalls of hurricanes of different SSHWS level over different decades, allowing analysis of the trends and level changes in hurricane over specific periods.
 
-```{r}
+```{r eval=FALSE}
 #| warning: false
 
 ui <- fluidPage(
@@ -421,6 +421,7 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server)
 ```
+
 
 ![](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/new/WechatIMG596.jpg)
 

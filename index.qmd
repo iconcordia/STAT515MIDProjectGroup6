@@ -141,7 +141,7 @@ The visualization already has an interactive feature, but one of the drawbacks o
 
 ### Shiny function results.
 
-![Shiny Function](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG591.jpg)
+![Shiny Function](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/shinny/WechatIMG599.jpg)
 
 ### What we can get in this chart.
 
@@ -153,7 +153,7 @@ The visualization already has an interactive feature, but one of the drawbacks o
 
 #### The use of the shiny function enhances the analysis of our projects by allowing us to select specific categories to analyze, which does not allow us to make confusion and errors due to the large number of categories, but allows us to analyze a single category or a few categories.
 
-![Shiny Function](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG592.jpg)
+![Shiny Function](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/shinny/WechatIMG600.jpg)
 
 #### This graph shows only two categories, which helps us to compare the distribution of the two as well as the growth. Also this image is simpler than the 5 category visualization and we are able to read it more clearly.
 
@@ -185,7 +185,7 @@ The percent of pharmaceuticals has fluctuated from year to year but is on an ove
 
 ### Original Graph
 
-![Original Visualizaion](/Users/zijiehe/Desktop/midimg/redesign2/Badgraph.jpg)
+![Original Visualizaion](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign2/Badgraph.jpg)
 
 ### Introduction
 
@@ -207,11 +207,12 @@ This map shows the area where the hurricane made landfall, identified by the lig
 
 ### Dataset
 
-![Dataset](/Users/zijiehe/Desktop/midimg/redesign2/dataset.jpg) <br>
+![Dataset](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign2/dataset.jpg) <br>
 
 ### Special efforts
 
-The data on this site cannot be downloaded directly, we need to extract the data using python. <br> First, I need to INSPECT the html structure of the site, then find where the dataset is located, then extract the data using beautifulsoup. Use a csv to save the extracted data. But the data is messy and duplicated, all linked together. I want to use pandas for data cleaning. After cleaning the excess data, deal with null values. Then read the CSV using R. <br> ![Dataset](/Users/zijiehe/Desktop/midimg/redesign2/WechatIMG586.jpg)
+The data on this site cannot be downloaded directly, we need to extract the data using python. <br> First, I need to INSPECT the html structure of the site, then find where the dataset is located, then extract the data using beautifulsoup. Use a csv to save the extracted data. But the data is messy and duplicated, all linked together. I want to use pandas for data cleaning. After cleaning the excess data, deal with null values. Then read the CSV using R. <br>
+![Dataset](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/redesign2/WechatIMG586.jpg)
 
 ### Redesign Visualization
 
@@ -329,11 +330,11 @@ shinyApp(ui = ui, server = server)
 
 #### I added the shiny feature which shows different categories. In this example, I wanted to study the landfall of hurricanes of different intensities and use different backgrounds to display them (different backgrounds help to display them more clearly).
 
-![](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG590.jpg){.sample width="200" height="auto"}
+![](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/shinny/WechatIMG590.jpg)
 
 #### I used the WorldStreet background here because I chose to show the landfall of a hurricane with an intensity of 2. It has a blue point color to more clearly indicate exactly where they made landfall.
 
-![](/Users/zijiehe/Desktop/midimg/shinyresults/WechatIMG589.jpg){.shinyfunction2 width="200" height="auto"}
+![](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/shinny/WechatIMG589.jpg)
 
 #### I used worldterrain's background here because his background color is white and it's easier to show the hurricane landfall. We can switch the SSHWS of the hurricane at will. for example, we can look at the landfall of a hurricane with intensity 1. This helps us to analyze the hurricane's landfall.
 
@@ -376,6 +377,8 @@ gg_plotly
 
 ```
 
+
+
 ```{r}
 #| warning: false
 
@@ -414,11 +417,28 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-![](/Users/zijiehe/Desktop/midimg/new/WechatIMG596.jpg){.shinyfunction3 width="200" height="auto"}
+![](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/new/WechatIMG596.jpg)
 
-![](/Users/zijiehe/Desktop/STATMIDPROJECT/img/new/WechatIMG597.jpg){.shinyfunction4 width="200" height="auto"}
+![](/Users/zijiehe/Desktop/STATMIDPROJECT/docs/img/new/WechatIMG597.jpg)
 
-### Reference
+### Add Shiny function in the bar chart.
+  This visualization shows an interactive Visulalization created with the Shiny Function named "Hurricane Landfalls Visualization". Also, It is used to show us the change of landfall frequency of hurricanes on 5-level SSHWS over ten years.
+  
+#### Advantage of the visualization
+  Interactivity: Viewers can select the SSHWS catagory because I created a fillter to extract the specific SSHWS level, increasing the ability for viewers to interact with the data and making data exploration more flexible.
+  Color selection: With reference to the online materials, I chose a good color combo after considering the obvious contrast and the needs of people with color blindness and weakness.
+  
+#### What we can get in the visualization:
+  Trends in hurricane intensity and frequency: By observing the height and distribution of different color blocks, and clicking the color block to view its label, we can analyze the landfall frequency changes of hurricanes of different intensities in ten years. For example, Category 1 hurricanes make landfall most frequently in the 2000s.
+  Time Trends: By comparing the bar charts over different decades, you can see whether the overall trend of hurricane landfall has increased or decreased over time. In this visualization, we can see that the number of hurricanes has been decreasing for nearly 20 years, so the forecast may continue to decrease in the next decade.
+  Distribution of hurricane intensity: By combining the overall bar chart, we can get an idea of which hurricane intensity levels are most common and how they change over time. We see Category 1 hurricanes making landfall frequently, followed by Category 3 hurricanes.
+
+#### Summary
+  From this graph, we can gain insights into changes in hurricane intensity ratings over time, such as whether there is a significant increase in hurricane intensity ratings in particular decades, or whether certain categories of hurricanes are becoming more frequent or less frequent. This will help researchers and policy makers understand long-term trends in hurricane activity and provide data to support future disaster preparedness and mitigation efforts.
+
+
+
+## Reference
 
 Anhui Huayuan Medicine News. (2023, June 28). Graph and Dataset. Retrieved from http://www.hyey.com/contents/29/13119.html <br>
 

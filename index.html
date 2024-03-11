@@ -90,7 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </head>
 
 <body class="fullcontent">
-
+This is just a test from Aida
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 
 <main class="content" id="quarto-document-content">
@@ -128,10 +128,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="record">Record</h2>
 <p>This is a <a href="https://www.youtube.com/watch?v=V0WGGLwItCk">link to Record</a>.</p>
 </section>
+
 <section id="project-overview" class="level2">
 <h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p>This projects aims to redesign bad graphs</p>
+<p>Graphs play a crucial role in our everyday lives, serving as one of the most common and effective methods for visualizing data. They are powerful tools that enable people to interpret information more easily and quickly. Often, data becomes more understandable and insightful when presented in a graph rather than shown in a table. While graphs are generally effective for visualizing data, it’s important to note that if they are not drawn accurately or correctly, they can potentially convey incorrect information. Graphical inaccuracies, such as incorrect scaling, misleading labeling, or improper data representation, can lead to misunderstandings or misinterpretations of the data. Therefore, it’s essential to ensure that graphs are created and presented carefully to accurately represent the underlying data. In this project, we have identified several graphs that require redesign due to their poor quality. In our designs, we prioritize key elements essential for effective graphs, including clear data presentation, simple design, alignment on a common scale, and the inclusion of appropriate labels and titles for values. We redesigned a map plot, a stacked bar chart, and a  pei plot</p>
+<p>On their page, we will discuss the issues present in each graph, along with the solutions and redesigns provided by us. The code for each section is also embedded for reference.</p>
+
+
 </section>
+
 <section id="redesign-map." class="level1">
 <h1>1. Redesign Map.</h1>
 <section id="original-map-graph" class="level2">
@@ -433,6 +438,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
+
+<section id="redesign-pie-chart" class="level1">
+<h1>2.Redesign Stacked Bar Chart</h1>
+<p>The selected graph is sourced from the US Department of Labor website(1). It illustrates the percentage of total weeks for individuals aged 18 to 34 who are employed, unemployed, or not in the labor force for the years 1998 to 2019.</p>
+<p><img src="img/redesign3/n1.jpg" class="img-fluid"><br>
+</p>
+<section id="reason-for-selecting-the-graph" class="level2">
+<h2 class="anchored" data-anchor-id="reason-for-selecting-the-graph">2.1 Reason for selecting the graph</h2>
+<p>In this graph, the percentage of employment status is compared between men and various races, such as White and Hispanic. However, the focus should be on comparing either gender or race types, not both. It would be more effective to compare either men and women or just between different races. Additionally, the data related to this graph includes three races, not just two, and it also includes marital status, which is not mentioned in the graph’s title.</p>
+<p>Comparisons are difficult to make in this graph, and it is challenging to quickly determine which race has the highest percentage of unemployment or to compare labor force participation between men and women, especially regarding cohabiting individuals.</p>
+</section>
+<section id="data-related-to-the-graph" class="level2">
+<h2 class="anchored" data-anchor-id="data-related-to-the-graph">2.2 Data related to the graph</h2>
+<p>The data related to this graph is provided as an excel file in <a href="https://www.bls.gov/nls/tables/news-releases-files/home.htm">”NLSY79: Percent of weeks individuals were employed, unemployed, or not in the labor force from ages 18 to 56 in 1978-2020 by educational attainment, sex, race, and Hispanic or Latino ethnicity”</a>.</p>
+<p>The file has the following structure : <img src="img/redesign3/n2.jpg" class="img-fluid"><br>
+</p>
+<p>As shown in the table, there is information regarding women and three different races: Hispanic or Latino, Black non-Hispanic, and White non-Hispanic. For the new design we use this data and create separate graphs related to gender and race.</p>
+</section>
+<section id="suggestions-for-enhancing-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="suggestions-for-enhancing-visualization">2.3 Suggestions for enhancing visualization</h2>
+<p>We redesigned the graph to facilitate comparison between races or genders. Instead of using a stacked bar chart, we used grouped bar chart to improve readability. Additionally, we used facets to enhance the comparison. The new design also allows users to select their preferred marital or employment status for a more personalized view. For this purpose, we utilized the Shiny library to create an interactive user interface for our graph.</p>
+</section>
+<section id="new-insights-inferred-from-the-new-design" class="level2">
+<h2 class="anchored" data-anchor-id="new-insights-inferred-from-the-new-design">2.4 New insights inferred from the new design</h2>
+<p>Our proposed design is shown here. There are different drop-down lists for selecting different races, genders, marital statuses, and employment statuses. By using these selections, different graphs will be generated.</p>
+<p>All graphs are grouped stacked bar charts and the chosen colors are suitable for color blindness.</p>
+<p>Suppose we want to compare employment durations between men and women based on their marital status, identifying the group with the highest average employment duration in years. By simply selecting ‘Gender,’ we quickly find out that married men have the highest percentage of weeks employed during the year.”</p>
+<p><img src="img/redesign3/n3.jpg" class="img-fluid"><br>
+</p>
+<p>By selecting the race, we can see the married white people have the highest time of employment during the year. If the selected</p>
+<p><img src="img/redesign3/n4.jpg" class="img-fluid"></p>
+<p>This desgin generates many graphs. Here we just show 7 of them . <img src="img/redesign3/n5.jpg" class="img-fluid"> <img src="img/n6.jpg" class="img-fluid"> <img src="img/redesign3/n7.jpg" class="img-fluid"> <img src="img/redesign3/n8.jpg" class="img-fluid"> <img src="img/redesign3/n9.jpg" class="img-fluid"></p>
+<p><a href="./Desgin3.html">All the codes are available here</a></p>
+
+</section>
+
+
 <section id="redesign-pie-chart" class="level1">
 <h1>3.Redesign Pie Chart</h1>
 <section id="pie-chart" class="level2">

@@ -8,6 +8,10 @@ format:
 
 ## Group6: Nemalhabib Aida, Zijie He
 
+## Record
+This is a [link to Record](https://www.youtube.com/watch?v=V0WGGLwItCk).
+
+
 ## Project Overview
 
 This projects aims to redesign bad graphs

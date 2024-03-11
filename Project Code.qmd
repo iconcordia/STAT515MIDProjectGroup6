@@ -1,17 +1,15 @@
-<html>
-
-<head>
-<title>Project Code</title>
-</head>
-
-<body>
-
-I have embedded my code in my original site as well as showing their results. And I've used boxes to hide the code, click on "code" to see each of my codes. This separate code site is to make it easier to directly access my code and test and verify it!
+---
+title: "Project Code"
+format: html
+editor: visual
+---
 
 
-This is the code of pie chart.
-And I use bar chart and line chart to redesign.
+I have embedded my codes in my original site as well as showing their results. I've also hidden the code in a box so that you can view each of my codes by clicking on "code". This separate code site is to make it easier to directly access my code and test and verify it!
 
+
+```{r}
+#| warning: false
 
 #install packages
 library(ggplot2)
@@ -19,87 +17,26 @@ library(plotly)
 library(dplyr)
 library(shiny)
 library(readr)
-library(webshot)
 library(leaflet)
 library(tidyverse)
 
-#read the CSV and change the format of each variable.
-data <- read_csv("/Users/zijiehe/Desktop/midpie.csv") 
-data$Year = as.factor(data$Year)
-data$Products = as.factor(data$Products)
-data$Ratio <- as.numeric(gsub("%", "", data$Ratio)) / 100
 
-#use ggplot to create the visualization.
-gg = ggplot(data, aes(x = as.factor(Year), y = Ratio, fill = Products)) +
-  geom_bar(stat = "identity", position = "fill") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
-  labs(x = "Year", y = "Percentage", fill = "Product Type",
-       title = "Product Type Contributions by Year (Stacked)") +
-  theme_minimal()<br>
 
-print(gg)
+df <- read.csv("/Users/zijiehe/Desktop/hurricanedata.csv", sep = ";", header = TRUE)
 
-#interactive function
-gg_plotly <- ggplotly(gg)
-
-gg_plotly
-
-#Using shiny function<br>
-ui <- fluidPage(<br>
-  titlePanel("Dynamic Product Type Contributions by Year"),<br>
-  sidebarLayout(<br>
-    sidebarPanel(<br>
-      checkboxGroupInput("selectedProducts", "Choose product types:",<br>
-                         choices = unique(data$Products),<br>
-                         selected = unique(data$Products)),<br>
-    ),
-    mainPanel(
-      plotlyOutput("stackedBarPlot")
-    )
+df$SSHWS = as.factor(df$SSHWS)
+df <- df %>%
+  mutate(
+    Latitude = as.numeric(gsub("N$", "", Latitude)),
+    Longitude = as.numeric(gsub("W$", "", Longitude)) * -1
   )
-)
 
-server <- function(input, output) {
-  output$stackedBarPlot <- renderPlotly({
-    filtered_data <- data %>% 
-      filter(Products %in% input$selectedProducts) %>%
-      mutate(Year = as.factor(Year))
-    
-    p <- ggplot(filtered_data, aes(x = Year, y = Ratio, fill = Products)) +
-      geom_bar(stat = "identity") +
-      scale_y_continuous(labels = scales::percent) +
-      scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
-      labs(x = "Year", y = "Percentage", title = "Product Type Contributions by Year (Stacked)") +
-      theme_minimal()
-    
-    ggplotly(p)
-  })
-}
-
-shinyApp(ui, server)
-
-abc = ggplot(data, aes(x = Year, y = Ratio, color = Products, group = Products)) +
-  geom_line() +
-  geom_point() +
-  facet_wrap(~Products, scales = "free_y") +
-  labs(title = "Product Ratios Over Years",
-       x = "Year",
-       y = "Ratio") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5),
-        plot.margin = margin(t = 10, r = 10, b = 20, l = 10, unit = "pt")) +
-  scale_y_continuous(labels = scales::percent_format())
-
-gg_plotly <- ggplotly(abc)
-gg_plotly
+```
 
 
 
-
-
-This is the code of map chart.
-And I use bar chart and map chart to redesign.
-
+```{r}
+#| warning: false
 
 df = df %>% select(c('Date','SSHWS','Latitude','Longitude','LandfallCountry','StormNames'))
 
@@ -123,6 +60,11 @@ leaflet(df.sub) %>%
                             "<br>Storm Names: ", StormNames,
                             "<br>SSHWS: ", SSHWS)
   ) 
+```
+
+
+```{r results = 'hide'}
+#| warning: false
 
 ui <- fluidPage(
   titlePanel("Dynamic SSHWS Category Visualization"),
@@ -150,9 +92,7 @@ server <- function(input, output) {
     } else {
       df
     }
-  
-  
-  
+    
     leaflet(data) %>%
       {
         switch(input$mapTypeInput,
@@ -178,8 +118,12 @@ server <- function(input, output) {
 }
 
 
+# Run the application
 shinyApp(ui = ui, server = server)
+```
 
+```{r}
+#| warning: false
 
 df$Date <- as.Date(df$Date, format = "%m/%d/%Y")
 df$Decade <- floor(year(df$Date) / 10) * 10  
@@ -201,6 +145,11 @@ a = ggplot(df_summary, aes(x = as.factor(Decade), y = Count, fill = as.factor(SS
 gg_plotly <- ggplotly(a)
 gg_plotly
 
+```
+
+
+```{r eval=FALSE}
+#| warning: false
 
 ui <- fluidPage(
   titlePanel("Hurricane Landfalls Visualization"),
@@ -235,8 +184,85 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
-end.rcode-->
+```
 
 
-</body>
-</html>
+```{r}
+#| warning: false
+
+#read the CSV and change the format of each variable.
+data <- read_csv("/Users/zijiehe/Desktop/midpie.csv") 
+data$Year = as.factor(data$Year)
+data$Products = as.factor(data$Products)
+data$Ratio <- as.numeric(gsub("%", "", data$Ratio)) / 100
+
+#use ggplot to create the visualization.
+gg = ggplot(data, aes(x = as.factor(Year), y = Ratio, fill = Products)) +
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
+  labs(x = "Year", y = "Percentage", fill = "Product Type",
+       title = "Product Type Contributions by Year (Stacked)") +
+  theme_minimal()
+
+print(gg)
+
+gg_plotly <- ggplotly(gg)
+
+gg_plotly
+```
+
+
+```{r results = 'hide'}
+#| warning: false
+
+#Using shiny function
+ui <- fluidPage(
+  titlePanel("Dynamic Product Type Contributions by Year"),
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput("selectedProducts", "Choose product types:",
+                         choices = unique(data$Products),
+                         selected = unique(data$Products)),
+    ),
+    mainPanel(
+      plotlyOutput("stackedBarPlot")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$stackedBarPlot <- renderPlotly({
+    filtered_data <- data %>% 
+      filter(Products %in% input$selectedProducts) %>%
+      mutate(Year = as.factor(Year))
+    
+    p <- ggplot(filtered_data, aes(x = Year, y = Ratio, fill = Products)) +
+      geom_bar(stat = "identity") +
+      scale_y_continuous(labels = scales::percent) +
+      scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
+      labs(x = "Year", y = "Percentage", title = "Product Type Contributions by Year (Stacked)") +
+      theme_minimal()
+    
+    ggplotly(p)
+  })
+}
+
+shinyApp(ui, server)
+```
+
+```{r}
+abc = ggplot(data, aes(x = Year, y = Ratio, color = Products, group = Products)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~Products, scales = "free_y") +
+  labs(title = "Product Ratios Over Years",
+       x = "Year",
+       y = "Ratio") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5),
+        plot.margin = margin(t = 10, r = 10, b = 20, l = 10, unit = "pt")) +
+  scale_y_continuous(labels = scales::percent_format())
+
+gg_plotly <- ggplotly(abc)
+gg_plotly
+```

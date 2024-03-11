@@ -1,18 +1,11 @@
-<html>
+---
+title: "Project Code"
+author: "hezijie"
+date: "`r Sys.Date()`"
+output: html_document
+---
 
-<head>
-<title>Project Code</title>
-</head>
-
-<body>
-
-I have embedded my code in my original site as well as showing their results. And I've used boxes to hide the code, click on "code" to see each of my codes. This separate code site is to make it easier to directly access my code and test and verify it!
-
-
-This is the code of pie chart.
-And I use bar chart and line chart to redesign.
-
-
+```{r}
 #install packages
 library(ggplot2)
 library(plotly)
@@ -36,7 +29,7 @@ gg = ggplot(data, aes(x = as.factor(Year), y = Ratio, fill = Products)) +
   scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
   labs(x = "Year", y = "Percentage", fill = "Product Type",
        title = "Product Type Contributions by Year (Stacked)") +
-  theme_minimal()<br>
+  theme_minimal()
 
 print(gg)
 
@@ -45,14 +38,14 @@ gg_plotly <- ggplotly(gg)
 
 gg_plotly
 
-#Using shiny function<br>
-ui <- fluidPage(<br>
-  titlePanel("Dynamic Product Type Contributions by Year"),<br>
-  sidebarLayout(<br>
-    sidebarPanel(<br>
-      checkboxGroupInput("selectedProducts", "Choose product types:",<br>
-                         choices = unique(data$Products),<br>
-                         selected = unique(data$Products)),<br>
+#Using shiny function
+ui <- fluidPage(
+  titlePanel("Dynamic Product Type Contributions by Year"),
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput("selectedProducts", "Choose product types:",
+                         choices = unique(data$Products),
+                         selected = unique(data$Products)),
     ),
     mainPanel(
       plotlyOutput("stackedBarPlot")
@@ -95,10 +88,6 @@ gg_plotly
 
 
 
-
-
-This is the code of map chart.
-And I use bar chart and map chart to redesign.
 
 
 df = df %>% select(c('Date','SSHWS','Latitude','Longitude','LandfallCountry','StormNames'))
@@ -235,8 +224,4 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
-end.rcode-->
-
-
-</body>
-</html>
+```

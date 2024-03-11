@@ -8,13 +8,15 @@ format:
 
 ## Group6: Nemalhabib Aida, Zijie He
 
+## [Project Code](Project Code.html)
+
 ## Record
 This is a [link to Record](https://www.youtube.com/watch?v=V0WGGLwItCk).
 
 
 ## Project Overview
 
-This projects aims to redesign bad graphs
+This projects aims to redesign bad graphs.
 
 # 1. Redesign Map.
 

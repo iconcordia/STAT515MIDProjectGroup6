@@ -1,0 +1,394 @@
+<html>
+
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>Project Code</title>
+</head>
+
+<body>
+
+redesign pie chart
+
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#install packages</span>
+<span class="hl kwd">library</span><span class="hl std">(ggplot2)</span>
+<span class="hl kwd">library</span><span class="hl std">(plotly)</span>
+</pre></div>
+<div class="message"><pre class="knitr r">## 
+## Attaching package: 'plotly'
+</pre></div>
+<div class="message"><pre class="knitr r">## The following object is masked from 'package:ggplot2':
+## 
+##     last_plot
+</pre></div>
+<div class="message"><pre class="knitr r">## The following object is masked from 'package:stats':
+## 
+##     filter
+</pre></div>
+<div class="message"><pre class="knitr r">## The following object is masked from 'package:graphics':
+## 
+##     layout
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">library</span><span class="hl std">(dplyr)</span>
+</pre></div>
+<div class="message"><pre class="knitr r">## 
+## Attaching package: 'dplyr'
+</pre></div>
+<div class="message"><pre class="knitr r">## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+</pre></div>
+<div class="message"><pre class="knitr r">## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">library</span><span class="hl std">(shiny)</span>
+<span class="hl kwd">library</span><span class="hl std">(readr)</span>
+<span class="hl kwd">library</span><span class="hl std">(leaflet)</span>
+<span class="hl kwd">library</span><span class="hl std">(tidyverse)</span>
+</pre></div>
+<div class="message"><pre class="knitr r">## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ lubridate 1.9.3     ✔ tibble    3.2.1
+## ✔ purrr     1.0.2     ✔ tidyr     1.3.1
+</pre></div>
+<div class="message"><pre class="knitr r">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks plotly::filter(), stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com">#read the CSV and change the format of each variable.</span>
+<span class="hl std">data</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">read_csv</span><span class="hl std">(</span><span class="hl str">&quot;/Users/zijiehe/Desktop/midpie.csv&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="message"><pre class="knitr r">## Rows: 40 Columns: 3
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (2): Products, Ratio
+## dbl (1): Year
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">data</span><span class="hl opt">$</span><span class="hl std">Year</span> <span class="hl kwb">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(data</span><span class="hl opt">$</span><span class="hl std">Year)</span>
+<span class="hl std">data</span><span class="hl opt">$</span><span class="hl std">Products</span> <span class="hl kwb">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(data</span><span class="hl opt">$</span><span class="hl std">Products)</span>
+<span class="hl std">data</span><span class="hl opt">$</span><span class="hl std">Ratio</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(</span><span class="hl kwd">gsub</span><span class="hl std">(</span><span class="hl str">&quot;%&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;&quot;</span><span class="hl std">, data</span><span class="hl opt">$</span><span class="hl std">Ratio))</span> <span class="hl opt">/</span> <span class="hl num">100</span>
+</pre></div>
+</div></div>
+
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#use ggplot to create the visualization.</span>
+<span class="hl std">gg</span> <span class="hl kwb">=</span> <span class="hl kwd">ggplot</span><span class="hl std">(data,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(Year),</span> <span class="hl kwc">y</span> <span class="hl std">= Ratio,</span> <span class="hl kwc">fill</span> <span class="hl std">= Products))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_bar</span><span class="hl std">(</span><span class="hl kwc">stat</span> <span class="hl std">=</span> <span class="hl str">&quot;identity&quot;</span><span class="hl std">,</span> <span class="hl kwc">position</span> <span class="hl std">=</span> <span class="hl str">&quot;fill&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_y_continuous</span><span class="hl std">(</span><span class="hl kwc">labels</span> <span class="hl std">= scales</span><span class="hl opt">::</span><span class="hl kwd">percent_format</span><span class="hl std">())</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_fill_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;blue&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#ff7f00&quot;</span><span class="hl std">,</span>  <span class="hl str">&quot;green&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#984ea3&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#a65628&quot;</span><span class="hl std">))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;Year&quot;</span><span class="hl std">,</span> <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl str">&quot;Percentage&quot;</span><span class="hl std">,</span> <span class="hl kwc">fill</span> <span class="hl std">=</span> <span class="hl str">&quot;Product Type&quot;</span><span class="hl std">,</span>
+       <span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Product Type Contributions by Year (Stacked)&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">theme_minimal</span><span class="hl std">()</span>
+
+<span class="hl kwd">print</span><span class="hl std">(gg)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl com">#interactive function</span>
+<span class="hl std">gg_plotly</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplotly</span><span class="hl std">(gg)</span>
+
+<span class="hl std">gg_plotly</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in loadNamespace(name): there is no package called 'webshot'
+</pre></div>
+</div></div>
+
+Using Shiny Function
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">#Using shiny function</span>
+<span class="hl std">ui</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">fluidPage</span><span class="hl std">(</span>
+  <span class="hl kwd">titlePanel</span><span class="hl std">(</span><span class="hl str">&quot;Dynamic Product Type Contributions by Year&quot;</span><span class="hl std">),</span>
+  <span class="hl kwd">sidebarLayout</span><span class="hl std">(</span>
+    <span class="hl kwd">sidebarPanel</span><span class="hl std">(</span>
+      <span class="hl kwd">checkboxGroupInput</span><span class="hl std">(</span><span class="hl str">&quot;selectedProducts&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Choose product types:&quot;</span><span class="hl std">,</span>
+                         <span class="hl kwc">choices</span> <span class="hl std">=</span> <span class="hl kwd">unique</span><span class="hl std">(data</span><span class="hl opt">$</span><span class="hl std">Products),</span>
+                         <span class="hl kwc">selected</span> <span class="hl std">=</span> <span class="hl kwd">unique</span><span class="hl std">(data</span><span class="hl opt">$</span><span class="hl std">Products)),</span>
+    <span class="hl std">),</span>
+    <span class="hl kwd">mainPanel</span><span class="hl std">(</span>
+      <span class="hl kwd">plotlyOutput</span><span class="hl std">(</span><span class="hl str">&quot;stackedBarPlot&quot;</span><span class="hl std">)</span>
+    <span class="hl std">)</span>
+  <span class="hl std">)</span>
+<span class="hl std">)</span>
+
+<span class="hl std">server</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">input</span><span class="hl std">,</span> <span class="hl kwc">output</span><span class="hl std">) {</span>
+  <span class="hl std">output</span><span class="hl opt">$</span><span class="hl std">stackedBarPlot</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">renderPlotly</span><span class="hl std">({</span>
+    <span class="hl std">filtered_data</span> <span class="hl kwb">&lt;-</span> <span class="hl std">data</span> <span class="hl opt">%&gt;%</span>
+      <span class="hl kwd">filter</span><span class="hl std">(Products</span> <span class="hl opt">%in%</span> <span class="hl std">input</span><span class="hl opt">$</span><span class="hl std">selectedProducts)</span> <span class="hl opt">%&gt;%</span>
+      <span class="hl kwd">mutate</span><span class="hl std">(</span><span class="hl kwc">Year</span> <span class="hl std">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(Year))</span>
+
+    <span class="hl std">p</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(filtered_data,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= Year,</span> <span class="hl kwc">y</span> <span class="hl std">= Ratio,</span> <span class="hl kwc">fill</span> <span class="hl std">= Products))</span> <span class="hl opt">+</span>
+      <span class="hl kwd">geom_bar</span><span class="hl std">(</span><span class="hl kwc">stat</span> <span class="hl std">=</span> <span class="hl str">&quot;identity&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+      <span class="hl kwd">scale_y_continuous</span><span class="hl std">(</span><span class="hl kwc">labels</span> <span class="hl std">= scales</span><span class="hl opt">::</span><span class="hl std">percent)</span> <span class="hl opt">+</span>
+      <span class="hl kwd">scale_fill_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;blue&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#ff7f00&quot;</span><span class="hl std">,</span>  <span class="hl str">&quot;green&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#984ea3&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#a65628&quot;</span><span class="hl std">))</span> <span class="hl opt">+</span>
+      <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;Year&quot;</span><span class="hl std">,</span> <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl str">&quot;Percentage&quot;</span><span class="hl std">,</span> <span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Product Type Contributions by Year (Stacked)&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+      <span class="hl kwd">theme_minimal</span><span class="hl std">()</span>
+
+    <span class="hl kwd">ggplotly</span><span class="hl std">(p)</span>
+  <span class="hl std">})</span>
+<span class="hl std">}</span>
+
+<span class="hl kwd">shinyApp</span><span class="hl std">(ui, server)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in loadNamespace(name): there is no package called 'webshot'
+</pre></div>
+</div></div>
+
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">abc</span> <span class="hl kwb">=</span> <span class="hl kwd">ggplot</span><span class="hl std">(data,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= Year,</span> <span class="hl kwc">y</span> <span class="hl std">= Ratio,</span> <span class="hl kwc">color</span> <span class="hl std">= Products,</span> <span class="hl kwc">group</span> <span class="hl std">= Products))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_line</span><span class="hl std">()</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_point</span><span class="hl std">()</span> <span class="hl opt">+</span>
+  <span class="hl kwd">facet_wrap</span><span class="hl std">(</span><span class="hl opt">~</span><span class="hl std">Products,</span> <span class="hl kwc">scales</span> <span class="hl std">=</span> <span class="hl str">&quot;free_y&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Product Ratios Over Years&quot;</span><span class="hl std">,</span>
+       <span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;Year&quot;</span><span class="hl std">,</span>
+       <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl str">&quot;Ratio&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">theme</span><span class="hl std">(</span><span class="hl kwc">axis.text.x</span> <span class="hl std">=</span> <span class="hl kwd">element_text</span><span class="hl std">(</span><span class="hl kwc">angle</span> <span class="hl std">=</span> <span class="hl num">90</span><span class="hl std">,</span> <span class="hl kwc">vjust</span> <span class="hl std">=</span> <span class="hl num">0.5</span><span class="hl std">),</span>
+        <span class="hl kwc">plot.margin</span> <span class="hl std">=</span> <span class="hl kwd">margin</span><span class="hl std">(</span><span class="hl kwc">t</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwc">r</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwc">b</span> <span class="hl std">=</span> <span class="hl num">20</span><span class="hl std">,</span> <span class="hl kwc">l</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwc">unit</span> <span class="hl std">=</span> <span class="hl str">&quot;pt&quot;</span><span class="hl std">))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_y_continuous</span><span class="hl std">(</span><span class="hl kwc">labels</span> <span class="hl std">= scales</span><span class="hl opt">::</span><span class="hl kwd">percent_format</span><span class="hl std">())</span>
+
+<span class="hl std">gg_plotly</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplotly</span><span class="hl std">(abc)</span>
+<span class="hl std">gg_plotly</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in loadNamespace(name): there is no package called 'webshot'
+</pre></div>
+</div></div>
+
+
+
+Redesign map
+
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">df</span> <span class="hl kwb">=</span> <span class="hl std">df</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">select</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'Date'</span><span class="hl std">,</span><span class="hl str">'SSHWS'</span><span class="hl std">,</span><span class="hl str">'Latitude'</span><span class="hl std">,</span><span class="hl str">'Longitude'</span><span class="hl std">,</span><span class="hl str">'LandfallCountry'</span><span class="hl std">,</span><span class="hl str">'StormNames'</span><span class="hl std">))</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in UseMethod(&quot;select&quot;): no applicable method for 'select' applied to an object of class &quot;function&quot;
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">set.seed</span><span class="hl std">(</span><span class="hl num">423</span><span class="hl std">)</span>
+<span class="hl std">df.sub</span> <span class="hl kwb">=</span> <span class="hl kwd">sample_n</span><span class="hl std">(df,</span> <span class="hl num">50</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in `sample_n()`:
+## ! `tbl` must be a data frame, not a function.
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">pal1</span> <span class="hl kwb">=</span> <span class="hl kwd">colorFactor</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;#1f77b4&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#2ca02c&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#d62728&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#ff7f0e&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#9467bd&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#8c564b&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#17becf&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#7f7f7f&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#e377c2&quot;</span><span class="hl std">),</span> <span class="hl kwc">domain</span>  <span class="hl std">=df.sub</span><span class="hl opt">$</span><span class="hl std">SSHWS)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in eval(expr, envir, enclos): object 'df.sub' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">leaflet</span><span class="hl std">(df.sub)</span> <span class="hl opt">%&gt;%</span>
+  <span class="hl kwd">addProviderTiles</span><span class="hl std">(</span><span class="hl str">&quot;Esri.WorldImagery&quot;</span><span class="hl std">)</span> <span class="hl opt">%&gt;%</span>
+  <span class="hl kwd">addCircles</span><span class="hl std">(</span><span class="hl kwc">lng</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl std">Longitude,</span>
+             <span class="hl kwc">lat</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl std">Latitude,</span>
+             <span class="hl kwc">weight</span> <span class="hl std">=</span> <span class="hl num">8</span><span class="hl std">,</span>
+             <span class="hl kwc">opacity</span> <span class="hl std">=</span> <span class="hl num">.80</span><span class="hl std">,</span>
+             <span class="hl kwc">color</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl kwd">pal1</span><span class="hl std">(SSHWS) ,</span>
+             <span class="hl kwc">popup</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl kwd">paste</span><span class="hl std">(</span><span class="hl str">&quot;Date: &quot;</span><span class="hl std">, Date,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Latitude: &quot;</span><span class="hl std">, Latitude,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Longitude: &quot;</span><span class="hl std">, Longitude,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Landfall Country: &quot;</span><span class="hl std">, LandfallCountry,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Storm Names: &quot;</span><span class="hl std">, StormNames,</span>
+                            <span class="hl str">&quot;&lt;br&gt;SSHWS: &quot;</span><span class="hl std">, SSHWS)</span>
+  <span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in eval(expr, envir, enclos): object 'df.sub' not found
+</pre></div>
+</div></div>
+
+Using Shiny Function
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">ui</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">fluidPage</span><span class="hl std">(</span>
+  <span class="hl kwd">titlePanel</span><span class="hl std">(</span><span class="hl str">&quot;Dynamic SSHWS Category Visualization&quot;</span><span class="hl std">),</span>
+  <span class="hl kwd">sidebarLayout</span><span class="hl std">(</span>
+    <span class="hl kwd">sidebarPanel</span><span class="hl std">(</span>
+      <span class="hl kwd">selectInput</span><span class="hl std">(</span><span class="hl str">&quot;sshwsInput&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Select SSHWS Category:&quot;</span><span class="hl std">,</span>
+                  <span class="hl kwc">choices</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;All&quot;</span><span class="hl std">,</span> <span class="hl kwd">unique</span><span class="hl std">(</span><span class="hl kwd">as.character</span><span class="hl std">(df</span><span class="hl opt">$</span><span class="hl std">SSHWS))),</span>
+                  <span class="hl kwc">selected</span> <span class="hl std">=</span> <span class="hl str">&quot;All&quot;</span><span class="hl std">),</span>
+
+      <span class="hl kwd">selectInput</span><span class="hl std">(</span><span class="hl str">&quot;mapTypeInput&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Select Map Type:&quot;</span><span class="hl std">,</span>
+                  <span class="hl kwc">choices</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Esri.WorldStreetMap&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Esri.WorldImagery&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Esri.WorldTerrain&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Esri.NatGeoWorldMap&quot;</span><span class="hl std">),</span>
+                  <span class="hl kwc">selected</span> <span class="hl std">=</span> <span class="hl str">&quot;Esri.WorldTerrain&quot;</span><span class="hl std">)</span>
+    <span class="hl std">),</span>
+    <span class="hl kwd">mainPanel</span><span class="hl std">(</span>
+      <span class="hl kwd">leafletOutput</span><span class="hl std">(</span><span class="hl str">&quot;map&quot;</span><span class="hl std">)</span>
+    <span class="hl std">)</span>
+  <span class="hl std">)</span>
+<span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in df$SSHWS: object of type 'closure' is not subsettable
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Define server logic</span>
+<span class="hl std">server</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">input</span><span class="hl std">,</span> <span class="hl kwc">output</span><span class="hl std">) {</span>
+  <span class="hl std">output</span><span class="hl opt">$</span><span class="hl std">map</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">renderLeaflet</span><span class="hl std">({</span>
+    <span class="hl std">data</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">if</span><span class="hl std">(input</span><span class="hl opt">$</span><span class="hl std">sshwsInput</span> <span class="hl opt">!=</span> <span class="hl str">&quot;All&quot;</span><span class="hl std">) {</span>
+      <span class="hl std">df</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">filter</span><span class="hl std">(SSHWS</span> <span class="hl opt">==</span> <span class="hl std">input</span><span class="hl opt">$</span><span class="hl std">sshwsInput)</span>
+    <span class="hl std">}</span> <span class="hl kwa">else</span> <span class="hl std">{</span>
+      <span class="hl std">df</span>
+    <span class="hl std">}</span>
+
+    <span class="hl kwd">leaflet</span><span class="hl std">(data)</span> <span class="hl opt">%&gt;%</span>
+      <span class="hl std">{</span>
+        <span class="hl kwd">switch</span><span class="hl std">(input</span><span class="hl opt">$</span><span class="hl std">mapTypeInput,</span>
+               <span class="hl str">&quot;Esri.WorldStreetMap&quot;</span> <span class="hl std">=</span> <span class="hl kwd">addProviderTiles</span><span class="hl std">(.,</span><span class="hl str">&quot;Esri.WorldStreetMap&quot;</span><span class="hl std">),</span>
+               <span class="hl str">&quot;Esri.WorldImagery&quot;</span> <span class="hl std">=</span> <span class="hl kwd">addProviderTiles</span><span class="hl std">(.,</span><span class="hl str">&quot;Esri.WorldImagery&quot;</span><span class="hl std">),</span>
+               <span class="hl str">&quot;Esri.WorldTerrain&quot;</span> <span class="hl std">=</span> <span class="hl kwd">addProviderTiles</span><span class="hl std">(.,</span><span class="hl str">&quot;Esri.WorldTerrain&quot;</span><span class="hl std">),</span>
+               <span class="hl str">&quot;Esri.NatGeoWorldMap&quot;</span> <span class="hl std">=</span> <span class="hl kwd">addProviderTiles</span><span class="hl std">(.,</span><span class="hl str">&quot;Esri.NatGeoWorldMap&quot;</span><span class="hl std">),</span>
+               <span class="hl kwd">addTiles</span><span class="hl std">(.)</span>
+        <span class="hl std">)</span>
+      <span class="hl std">}</span> <span class="hl opt">%&gt;%</span>
+    <span class="hl kwd">addCircles</span><span class="hl std">(</span><span class="hl kwc">lng</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl std">Longitude,</span>
+             <span class="hl kwc">lat</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl std">Latitude,</span>
+             <span class="hl kwc">weight</span> <span class="hl std">=</span> <span class="hl num">5</span><span class="hl std">,</span>
+             <span class="hl kwc">opacity</span> <span class="hl std">=</span> <span class="hl num">.80</span><span class="hl std">,</span>
+             <span class="hl kwc">color</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl kwd">pal1</span><span class="hl std">(SSHWS) ,</span>
+             <span class="hl kwc">popup</span> <span class="hl std">=</span> <span class="hl opt">~</span><span class="hl kwd">paste</span><span class="hl std">(</span><span class="hl str">&quot;Date: &quot;</span><span class="hl std">, Date,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Latitude: &quot;</span><span class="hl std">, Latitude,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Longitude: &quot;</span><span class="hl std">, Longitude,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Landfall Country: &quot;</span><span class="hl std">, LandfallCountry,</span>
+                            <span class="hl str">&quot;&lt;br&gt;Storm Names: &quot;</span><span class="hl std">, StormNames,</span>
+                            <span class="hl str">&quot;&lt;br&gt;SSHWS: &quot;</span><span class="hl std">, SSHWS))</span>
+  <span class="hl std">})</span>
+<span class="hl std">}</span>
+
+
+<span class="hl kwd">shinyApp</span><span class="hl std">(</span><span class="hl kwc">ui</span> <span class="hl std">= ui,</span> <span class="hl kwc">server</span> <span class="hl std">= server)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in loadNamespace(name): there is no package called 'webshot'
+</pre></div>
+</div></div>
+
+redesign map by using bar chart
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">df</span><span class="hl opt">$</span><span class="hl std">Date</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.Date</span><span class="hl std">(df</span><span class="hl opt">$</span><span class="hl std">Date,</span> <span class="hl kwc">format</span> <span class="hl std">=</span> <span class="hl str">&quot;%m/%d/%Y&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in df$Date: object of type 'closure' is not subsettable
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">df</span><span class="hl opt">$</span><span class="hl std">Decade</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">floor</span><span class="hl std">(</span><span class="hl kwd">year</span><span class="hl std">(df</span><span class="hl opt">$</span><span class="hl std">Date)</span> <span class="hl opt">/</span> <span class="hl num">10</span><span class="hl std">)</span> <span class="hl opt">*</span> <span class="hl num">10</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in df$Date: object of type 'closure' is not subsettable
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">df_summary</span> <span class="hl kwb">&lt;-</span> <span class="hl std">df</span> <span class="hl opt">%&gt;%</span>
+  <span class="hl kwd">group_by</span><span class="hl std">(Decade, SSHWS)</span> <span class="hl opt">%&gt;%</span>
+  <span class="hl kwd">summarise</span><span class="hl std">(</span><span class="hl kwc">Count</span> <span class="hl std">=</span> <span class="hl kwd">n</span><span class="hl std">(),</span> <span class="hl kwc">.groups</span> <span class="hl std">=</span> <span class="hl str">'drop'</span><span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in UseMethod(&quot;group_by&quot;): no applicable method for 'group_by' applied to an object of class &quot;function&quot;
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">a</span> <span class="hl kwb">=</span> <span class="hl kwd">ggplot</span><span class="hl std">(df_summary,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(Decade),</span> <span class="hl kwc">y</span> <span class="hl std">= Count,</span> <span class="hl kwc">fill</span> <span class="hl std">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(SSHWS)))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_bar</span><span class="hl std">(</span><span class="hl kwc">stat</span> <span class="hl std">=</span> <span class="hl str">&quot;identity&quot;</span><span class="hl std">,</span> <span class="hl kwc">position</span> <span class="hl std">=</span> <span class="hl str">&quot;stack&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_fill_brewer</span><span class="hl std">(</span><span class="hl kwc">palette</span> <span class="hl std">=</span> <span class="hl str">&quot;Spectral&quot;</span><span class="hl std">,</span> <span class="hl kwc">name</span> <span class="hl std">=</span> <span class="hl str">&quot;SSHWS Level&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_fill_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;red&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#1f77b4&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#2ca02c&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#ff7f0e&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;#e377c2&quot;</span><span class="hl std">))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Hurricane Landfalls by Decade and SSHWS Category&quot;</span><span class="hl std">,</span>
+       <span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;Decade&quot;</span><span class="hl std">,</span>
+       <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl str">&quot;Number of Landfalls&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">theme_minimal</span><span class="hl std">()</span> <span class="hl opt">+</span>
+  <span class="hl kwd">theme</span><span class="hl std">(</span><span class="hl kwc">axis.text.x</span> <span class="hl std">=</span> <span class="hl kwd">element_text</span><span class="hl std">(</span><span class="hl kwc">angle</span> <span class="hl std">=</span> <span class="hl num">45</span><span class="hl std">,</span> <span class="hl kwc">hjust</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">))</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in eval(expr, envir, enclos): object 'df_summary' not found
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">gg_plotly</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplotly</span><span class="hl std">(a)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in UseMethod(&quot;ggplotly&quot;, p): no applicable method for 'ggplotly' applied to an object of class &quot;function&quot;
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">gg_plotly</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in loadNamespace(name): there is no package called 'webshot'
+</pre></div>
+</div></div>
+
+Using Shiny Function
+<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">ui</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">fluidPage</span><span class="hl std">(</span>
+  <span class="hl kwd">titlePanel</span><span class="hl std">(</span><span class="hl str">&quot;Hurricane Landfalls Visualization&quot;</span><span class="hl std">),</span>
+  <span class="hl kwd">sidebarLayout</span><span class="hl std">(</span>
+    <span class="hl kwd">sidebarPanel</span><span class="hl std">(</span>
+      <span class="hl kwd">selectInput</span><span class="hl std">(</span><span class="hl str">&quot;sshws&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Select SSHWS Category:&quot;</span><span class="hl std">,</span>
+                  <span class="hl kwc">choices</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;All&quot;</span><span class="hl std">,</span> <span class="hl kwd">levels</span><span class="hl std">(df</span><span class="hl opt">$</span><span class="hl std">SSHWS))),</span>
+      <span class="hl kwd">selectInput</span><span class="hl std">(</span><span class="hl str">&quot;decade&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Select Decade:&quot;</span><span class="hl std">,</span>
+                  <span class="hl kwc">choices</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;All&quot;</span><span class="hl std">,</span> <span class="hl kwd">unique</span><span class="hl std">(df</span><span class="hl opt">$</span><span class="hl std">Decade)))</span>
+    <span class="hl std">),</span>
+    <span class="hl kwd">mainPanel</span><span class="hl std">(</span>
+      <span class="hl kwd">plotOutput</span><span class="hl std">(</span><span class="hl str">&quot;hurricanePlot&quot;</span><span class="hl std">)</span>
+    <span class="hl std">)</span>
+  <span class="hl std">)</span>
+<span class="hl std">)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in df$SSHWS: object of type 'closure' is not subsettable
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">server</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">input</span><span class="hl std">,</span> <span class="hl kwc">output</span><span class="hl std">) {</span>
+  <span class="hl std">output</span><span class="hl opt">$</span><span class="hl std">hurricanePlot</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">renderPlot</span><span class="hl std">({</span>
+    <span class="hl std">data_filtered</span> <span class="hl kwb">&lt;-</span> <span class="hl std">df</span> <span class="hl opt">%&gt;%</span>
+      <span class="hl kwd">filter</span><span class="hl std">((SSHWS</span> <span class="hl opt">==</span> <span class="hl std">input</span><span class="hl opt">$</span><span class="hl std">sshws</span> <span class="hl opt">|</span> <span class="hl std">input</span><span class="hl opt">$</span><span class="hl std">sshws</span> <span class="hl opt">==</span> <span class="hl str">&quot;All&quot;</span><span class="hl std">)</span> <span class="hl opt">&amp;</span>
+               <span class="hl std">(Decade</span> <span class="hl opt">==</span> <span class="hl std">input</span><span class="hl opt">$</span><span class="hl std">decade</span> <span class="hl opt">|</span> <span class="hl std">input</span><span class="hl opt">$</span><span class="hl std">decade</span> <span class="hl opt">==</span> <span class="hl str">&quot;All&quot;</span><span class="hl std">))</span>
+
+    <span class="hl kwd">ggplot</span><span class="hl std">(data_filtered,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">as.factor</span><span class="hl std">(Decade),</span> <span class="hl kwc">fill</span> <span class="hl std">= SSHWS))</span> <span class="hl opt">+</span>
+      <span class="hl kwd">geom_bar</span><span class="hl std">(</span><span class="hl kwc">position</span> <span class="hl std">=</span> <span class="hl str">&quot;stack&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+      <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Hurricane Landfalls by Decade and SSHWS Category&quot;</span><span class="hl std">,</span>
+           <span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;Decade&quot;</span><span class="hl std">,</span>
+           <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl str">&quot;Number of Landfalls&quot;</span><span class="hl std">,</span>
+           <span class="hl kwc">fill</span> <span class="hl std">=</span> <span class="hl str">&quot;SSHWS Category&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+      <span class="hl kwd">theme_minimal</span><span class="hl std">()</span> <span class="hl opt">+</span>
+      <span class="hl kwd">theme</span><span class="hl std">(</span><span class="hl kwc">axis.text.x</span> <span class="hl std">=</span> <span class="hl kwd">element_text</span><span class="hl std">(</span><span class="hl kwc">angle</span> <span class="hl std">=</span> <span class="hl num">45</span><span class="hl std">,</span> <span class="hl kwc">hjust</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">))</span>
+  <span class="hl std">})</span>
+<span class="hl std">}</span>
+
+<span class="hl kwd">shinyApp</span><span class="hl std">(</span><span class="hl kwc">ui</span> <span class="hl std">= ui,</span> <span class="hl kwc">server</span> <span class="hl std">= server)</span>
+</pre></div>
+<div class="error"><pre class="knitr r">## Error in loadNamespace(name): there is no package called 'webshot'
+</pre></div>
+</div></div>
+
+
+</body>
+</html>

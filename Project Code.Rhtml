@@ -1,0 +1,247 @@
+<html>
+
+<head>
+<title>Project Code</title>
+</head>
+
+<body>
+
+redesign pie chart
+
+<!--begin.rcode
+#install packages
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(shiny)
+library(readr)
+library(leaflet)
+library(tidyverse)
+
+#read the CSV and change the format of each variable.
+data <- read_csv("/Users/zijiehe/Desktop/midpie.csv") 
+data$Year = as.factor(data$Year)
+data$Products = as.factor(data$Products)
+data$Ratio <- as.numeric(gsub("%", "", data$Ratio)) / 100
+end.rcode-->
+
+<!--begin.rcode
+#use ggplot to create the visualization.
+gg = ggplot(data, aes(x = as.factor(Year), y = Ratio, fill = Products)) +
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
+  labs(x = "Year", y = "Percentage", fill = "Product Type",
+       title = "Product Type Contributions by Year (Stacked)") +
+  theme_minimal()
+
+print(gg)
+
+#interactive function
+gg_plotly <- ggplotly(gg)
+
+gg_plotly
+end.rcode-->
+
+Using Shiny Function
+<!--begin.rcode
+#Using shiny function
+ui <- fluidPage(
+  titlePanel("Dynamic Product Type Contributions by Year"),
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput("selectedProducts", "Choose product types:",
+                         choices = unique(data$Products),
+                         selected = unique(data$Products)),
+    ),
+    mainPanel(
+      plotlyOutput("stackedBarPlot")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$stackedBarPlot <- renderPlotly({
+    filtered_data <- data %>% 
+      filter(Products %in% input$selectedProducts) %>%
+      mutate(Year = as.factor(Year))
+    
+    p <- ggplot(filtered_data, aes(x = Year, y = Ratio, fill = Products)) +
+      geom_bar(stat = "identity") +
+      scale_y_continuous(labels = scales::percent) +
+      scale_fill_manual(values = c("blue", "#ff7f00",  "green", "#984ea3", "#a65628")) +
+      labs(x = "Year", y = "Percentage", title = "Product Type Contributions by Year (Stacked)") +
+      theme_minimal()
+    
+    ggplotly(p)
+  })
+}
+
+shinyApp(ui, server)
+end.rcode-->
+
+<!--begin.rcode
+abc = ggplot(data, aes(x = Year, y = Ratio, color = Products, group = Products)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~Products, scales = "free_y") +
+  labs(title = "Product Ratios Over Years",
+       x = "Year",
+       y = "Ratio") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5),
+        plot.margin = margin(t = 10, r = 10, b = 20, l = 10, unit = "pt")) +
+  scale_y_continuous(labels = scales::percent_format())
+
+gg_plotly <- ggplotly(abc)
+gg_plotly
+end.rcode-->
+
+
+
+Redesign map
+
+<!--begin.rcode
+df = df %>% select(c('Date','SSHWS','Latitude','Longitude','LandfallCountry','StormNames'))
+
+set.seed(423)
+df.sub = sample_n(df, 50) 
+
+
+pal1 = colorFactor(c("#1f77b4", "#2ca02c", "#d62728", "#ff7f0e", "#9467bd", "#8c564b", "#17becf", "#7f7f7f", "#e377c2"), domain  =df.sub$SSHWS)
+
+leaflet(df.sub) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircles(lng = ~Longitude,
+             lat = ~Latitude,
+             weight = 8, 
+             opacity = .80, 
+             color = ~pal1(SSHWS) , 
+             popup = ~paste("Date: ", Date,
+                            "<br>Latitude: ", Latitude,
+                            "<br>Longitude: ", Longitude,
+                            "<br>Landfall Country: ", LandfallCountry,
+                            "<br>Storm Names: ", StormNames,
+                            "<br>SSHWS: ", SSHWS)
+  ) 
+end.rcode-->
+
+Using Shiny Function
+<!--begin.rcode
+ui <- fluidPage(
+  titlePanel("Dynamic SSHWS Category Visualization"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("sshwsInput", "Select SSHWS Category:",
+                  choices = c("All", unique(as.character(df$SSHWS))),
+                  selected = "All"), 
+      
+      selectInput("mapTypeInput", "Select Map Type:",
+                  choices = c("Esri.WorldStreetMap", "Esri.WorldImagery", "Esri.WorldTerrain", "Esri.NatGeoWorldMap"),
+                  selected = "Esri.WorldTerrain")
+    ),
+    mainPanel(
+      leafletOutput("map")
+    )
+  )
+)
+
+# Define server logic
+server <- function(input, output) {
+  output$map <- renderLeaflet({
+    data <- if(input$sshwsInput != "All") {
+      df %>% filter(SSHWS == input$sshwsInput)
+    } else {
+      df
+    }
+    
+    leaflet(data) %>%
+      {
+        switch(input$mapTypeInput,
+               "Esri.WorldStreetMap" = addProviderTiles(.,"Esri.WorldStreetMap"),
+               "Esri.WorldImagery" = addProviderTiles(.,"Esri.WorldImagery"),
+               "Esri.WorldTerrain" = addProviderTiles(.,"Esri.WorldTerrain"),
+               "Esri.NatGeoWorldMap" = addProviderTiles(.,"Esri.NatGeoWorldMap"),
+               addTiles(.)
+        )
+      } %>%
+    addCircles(lng = ~Longitude,
+             lat = ~Latitude,
+             weight = 5, 
+             opacity = .80, 
+             color = ~pal1(SSHWS) , 
+             popup = ~paste("Date: ", Date,
+                            "<br>Latitude: ", Latitude,
+                            "<br>Longitude: ", Longitude,
+                            "<br>Landfall Country: ", LandfallCountry,
+                            "<br>Storm Names: ", StormNames,
+                            "<br>SSHWS: ", SSHWS))
+  })
+}
+
+
+shinyApp(ui = ui, server = server)
+end.rcode-->
+
+redesign map by using bar chart
+<!--begin.rcode
+df$Date <- as.Date(df$Date, format = "%m/%d/%Y")
+df$Decade <- floor(year(df$Date) / 10) * 10  
+
+df_summary <- df %>%
+  group_by(Decade, SSHWS) %>%
+  summarise(Count = n(), .groups = 'drop')
+
+a = ggplot(df_summary, aes(x = as.factor(Decade), y = Count, fill = as.factor(SSHWS))) +
+  geom_bar(stat = "identity", position = "stack") +
+  scale_fill_brewer(palette = "Spectral", name = "SSHWS Level") +
+  scale_fill_manual(values = c("red", "#1f77b4", "#2ca02c", "#ff7f0e", "#e377c2")) +
+  labs(title = "Hurricane Landfalls by Decade and SSHWS Category",
+       x = "Decade",
+       y = "Number of Landfalls") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+gg_plotly <- ggplotly(a)
+gg_plotly
+end.rcode-->
+
+Using Shiny Function
+<!--begin.rcode
+ui <- fluidPage(
+  titlePanel("Hurricane Landfalls Visualization"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("sshws", "Select SSHWS Category:",
+                  choices = c("All", levels(df$SSHWS))),
+      selectInput("decade", "Select Decade:",
+                  choices = c("All", unique(df$Decade)))
+    ),
+    mainPanel(
+      plotOutput("hurricanePlot")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$hurricanePlot <- renderPlot({
+    data_filtered <- df %>%
+      filter((SSHWS == input$sshws | input$sshws == "All") &
+               (Decade == input$decade | input$decade == "All"))
+    
+    ggplot(data_filtered, aes(x = as.factor(Decade), fill = SSHWS)) +
+      geom_bar(position = "stack") +
+      labs(title = "Hurricane Landfalls by Decade and SSHWS Category",
+           x = "Decade",
+           y = "Number of Landfalls",
+           fill = "SSHWS Category") +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  })
+}
+
+shinyApp(ui = ui, server = server)
+end.rcode-->
+
+
+</body>
+</html>

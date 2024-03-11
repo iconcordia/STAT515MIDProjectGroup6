@@ -438,7 +438,7 @@ shinyApp(ui, server)
 
 #### Shiny function results.
 
-![Shiny Function](img/shinny/WechatIMG599.jpg) <br>
+![Shiny Function](img/shinny/WechatIMG591.jpg) <br>
 
 ### 3.3.3 What we can get in this chart.
 
@@ -450,7 +450,7 @@ shinyApp(ui, server)
 
   the use of the shiny function enhances the analysis of our projects by allowing us to select specific categories to analyze, which does not allow us to make confusion and errors due to the large number of categories, but allows us to analyze a single category or a few categories.
 
-![Shiny Function](img/shinny/WechatIMG600.jpg) <br>
+![Shiny Function](img/shinny/WechatIMG592.jpg) <br>
 
   This graph shows only two categories, which helps us to compare the distribution of the two as well as the growth. Also this image is simpler than the 5 category visualization and we are able to read it more clearly.
 
